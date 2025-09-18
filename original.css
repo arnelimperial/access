@@ -1,0 +1,87 @@
+body {
+    font-family: Helvetica;
+    scroll-behavior: smooth;
+}
+
+.main-header {
+    min-height: 500px;
+    background-color: #000;
+}
+
+
+.main-header .showcase {
+    padding-top: 100px;
+}
+
+/* Navbar menu style*/
+nav a {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: Helvetica;
+}
+
+/* Navbar box shadow*/
+nav {
+    box-shadow: none;
+}
+
+nav .btn-large {
+    padding: 0.5 5px;
+    background-color: black;
+}
+
+/*Dropdown style*/
+nav .dropdown-content {
+    background-color: #fff;
+    min-width: 300px;
+    border-radius: 8px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+nav .dropdown-content li>a {
+    color: #000;
+    font-weight: bold;
+    font-size: 1rem;
+    font-family: Helvetica;
+}
+
+
+/*Access Modal*/
+.modal {
+    width: 80%;
+}
+
+.access .modal .row {
+    line-height: 5px;
+}
+
+/*BookNow Modal*/
+.booknow .modal {
+    width: 50%;
+}
+
+.booknow .modal .row {
+    line-height: 5px;
+}
+
+.booknow .modal .dropdown-content li>span {
+    font-size: 1rem;
+    color: #000;
+    line-height: 15px;
+}
+
+/*Footer style*/
+.page-footer {
+    padding-top: 35px;
+    padding-bottom: 20px;
+    color: #fff;
+    background-color: black;
+}
+
+input.valid[type=text]:not(.browser-default) {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+}

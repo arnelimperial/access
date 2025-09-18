@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="original.css">
+    <title>Skye Suites</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="main-header">
+            <div class="navbar-fixed">
+                <nav class="transparent" style="padding-top: 50px;">
+                    <div class="container">
+                        <div class="nav-wrapper">
+                            <a href='#' data-target='dropdown1'  
+                            class="dropdown-trigger btn waves-effect waves-light btn btn-large white black-text" 
+                            style="font-size: 1rem; font-family: Helvetica; font-weight: bold; text-align: center; 
+                            border-radius: 25px;">
+                                <i class="material-icons right" style="line-height: 55px;">
+                                    arrow_drop_down
+                                </i>
+                                MENU
+                            </a>
+                            <ul class="right">
+                                <li>
+                                    <a href="#booknow" 
+                                    class="modal-trigger waves-effect waves-light btn btn-large red white-text"
+                                    style="font-size: 1rem; font-weight: bold; 
+                                    text-align: center; color: #fff; border-radius: 25px;">
+                                    BOOK NOW
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content' 
+        style="padding-top: 30px; padding-bottom: 30px;
+        padding-left: 30px;">
+            <li>
+                <a href="index.html">Home 
+                    <i class="material-icons black-text">home</i>
+                </a>
+            </li>
+            <li>
+                <a href="suites.html">Suites 
+                    <i class="material-icons black-text">hotel</i>
+                </a>
+            </li>
+            <li>
+                <a href="dining.html">Dining
+                    <i class="material-icons black-text">local_dining</i>
+                </a>
+            </li>
+            <li>
+                <a href="experience.html">Experience
+                    <i class="material-icons black-text">spa</i>
+                </a>
+            </li>
+            <li>
+                <a href="access.html">Access
+                    <i class="material-icons black-text">info</i>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Showcase -->
+        <div class="container showcase">
+            <div class="row">
+                <div class="col s12 m10 offset-m1 left">
+                    <h1 style="font-weight: bold; font-size: 5rem; font-family:'Times New Roman', Times, serif; text-align: center;
+                    padding-top: 50px; padding-left: 15px; color: #fff; text-shadow: 2px 2px 10px black">
+                        ACCESS
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Section: Access -->
+    <section class="section" >
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6 left" style="padding-top: 15px;">
+                    <h3 style="text-align: left; font-size: 1.25rem; font-weight: bold;">
+                        <em>Getting here</em>
+                    </h3>
+                    <p style="text-align: left; font-size: 1rem;">
+                        Check in 3:00PM | Check-out 11:00AM
+                    </p>
+                    <iframe class="responsive-iframe" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d989848.3750780706!2d121.122367!3d14.276813!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc0d5f5c815a2e35c!2sLa%20Serena%20Restaurant!5e0!3m2!1sen!2sph!4v1669728948171!5m2!1sen!2sph" 
+                    width="400" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="col s12 m6 right" style="padding-top: 15px;">
+                    <p style="text-align: left; font-size: 1.25rem; font-weight: bold;">
+                        <em>Let's get in touch</em>
+                    </p>
+                    <ul>
+                        <li style="margin-left: 10px;">
+                            <p style="text-align: left; font-size: 1rem; font-weight: bold;">
+                                Title
+                            </p>
+                            <div class="input-field">
+                                <select>
+                                    <option value="Mr">Mr.</option>
+                                    <option value="Ms">Ms.</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="col s12 m6 left">
+                                <label for="first_name" style="font-size: 1rem; color: #000; font-weight: bold;">
+                                    First Name
+                                </label>
+                                <input id="first_name" type="text" class="validate">
+                            </div>
+                            <div class="col s12 m6 right">
+                                <label for="last_name" style="font-size: 1rem; color: #000; font-weight: bold;">
+                                    Last Name
+                                </label>
+                                <input id="last_name" type="text" class="validate">
+                            </div>
+                        </li>
+                        <li style="margin-left: 10px;">
+                            <label for="email" style="font-size: 1rem; color: #000; font-weight: bold;">
+                                Email
+                            </label>
+                            <input id="email" type="email" class="validate">
+                        </li>
+                        <li>
+                            <p style="margin-left: 10px; text-align: left; font-size: 1rem; font-weight: bold;">
+                                Message
+                            </p>
+                            <div class="input-field" style="margin-left: 10px;">
+                                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                            </div>
+                        </li>
+                        <li style="margin-left: 10px; text-align: center;">
+                            <button class="waves-effect waves-light btn btn-small right black white-text"
+                                    type="submit" style="font-weight: bold; border-radius: 8px;">
+                                SEND
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>    
+    </section>
+
+    <!-- BookNow Modal -->
+    <div id="booknow" class="modal">
+        <div class="modal-content" style="font-family: Helvetica;">
+            <h4 style="text-align: center; margin-top: 20px; font-size: 2rem; font-weight: bold;">
+                HOTEL BOOKING
+            </h4>
+            <p style="margin-top: 50px; margin-left: 10px; font-size: 1.25rem;">
+                CONTACT INFORMATION
+            </p>
+            <div class="row" >
+                <div class="col s12 m6 left">
+                    <label for="first_name" style="font-size: 1rem; color: black; font-weight: bold;">
+                        First Name
+                    </label>
+                    <input id="first_name" type="text" class="validate">
+                </div>
+                <div class="col s12 m6 right">
+                    <label for="last_name" style="font-size: 1rem; color: black; font-weight: bold;">
+                        Last Name
+                    </label>
+                    <input id="last_name" type="text" class="validate">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m6 left">
+                    <label for="phone" style="font-size: 1rem; color: black; font-weight: bold;">
+                        Phone
+                    </label>
+                    <input id="phone" type="tel" class="validate">
+                </div>
+                <div class="col s12 m6 right">
+                    <label for="email" style="font-size: 1rem; color: black; font-weight: bold;">
+                        Email
+                    </label>
+                    <input id="email" type="email" class="validate">
+                </div>
+            </div>
+            <p style="margin-top: 30px; margin-left: 10px; font-size: 1.25rem;">
+                BOOKING DETAILS
+            </p>
+            <div class="row">
+                <div class="col s12 m6 left">
+                    <label for="date"><p style="font-size: 1rem; color: black; font-weight: bold;">
+                        Check-in :</p>
+                    </label>
+                    <input id="date" name="date" type="datetime-local">
+                </div>
+                <div class="col s12 m6 right">
+                    <label for="date"><p style="font-size: 1rem; color: black; font-weight: bold;">
+                        Check-out :</p>
+                    </label>
+                    <input id="date" name="date" type="datetime-local">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col s12 m6 left">
+                    <label style="font-size: 1rem; color: black; font-weight: bold;">
+                        Adults
+                    </label>
+                    <select>
+                        <option value="1">1 Adult</option>
+                        <option value="2">2 Adults</option>
+                        <option value="3">3 Adults</option>
+                        <option value="4">4 Adults</option>
+                    </select>
+                </div>
+                <div class="col s12 m6 right">
+                    <label style="font-size: 1rem; color: black; font-weight: bold;">
+                        Children 
+                    </label> 
+                    <select>
+                        <option value="0">0 Child</option>
+                        <option value="1">1 Child</option>
+                        <option value="2">2 Children</option>
+                        <option value="3">3 Children</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px">
+                <div class="col s12 m6 left">
+                    <label style="font-size: 1rem; color: black; font-weight: bold;">
+                        Suite  
+                    </label>
+                    <select>
+                        <option value="silene-junior-suite">Silene Junior Suite</option>
+                        <option value="lupine-unuior-suite">Lupine Junuior Suite</option>
+                        <option value="silene-suite">Silene Suite</option>
+                        <option value="lupine-suite">Lupine Suite</option>
+                    </select>
+                </div>
+                <div class="col s12 m6 right">
+                    <label style="font-size: 1rem; color: black; font-weight: bold;">
+                        Board
+                    </label>
+                    <select>
+                        <option value="breakfast">Breakfast</option>
+                        <option value="half-board">Half Board</option>
+                    </select>
+                </div>
+            </div>
+        </div>    
+        <div class="modal-footer" style="margin-top: 5px;">
+            <a href="#!" class="modal-close waves-effect waves-cyan btn-flat"
+                style="background-color: #000; color:#fff; font-weight: bold;">
+                SUBMIT
+            </a>
+        </div>
+    </div>
+
+</body>
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row" style="line-height: 200%">
+        <div class="col s12 m4">
+            <div class="wrapper">
+                <h5 class="white-text" style="font-weight: bold;">Contact Us</h5>
+                <ul>
+                    <li>
+                        <i class="fa-solid fa-location-dot fa-lg prefix"></i>
+                        631 Douglas Mountains 
+                        <br>
+                        New Mireilleshire Indiana USA
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone fa-lg prefix"></i>
+                        204-663-3258
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope fa-lg prefix"></i>
+                        info@skyesuiteshotel.com
+                    </li>
+                </ul>
+            </div> 
+        </div>
+        <div class="col s12 m4">
+            <h5 style="font-weight: bold;">Follow Us</h5>
+            <ul>
+                <li>
+                    <i class="fa-brands fa-facebook fa-2x fa-cog fa-fw"></i>
+                    <i class="fa-brands fa-instagram fa-2x fa-cog fa-fw"></i>
+                    <i class="fa-brands fa-pinterest fa-2x fa-cog fa-fw"></i>
+                    <i class="fa-brands fa-youtube fa-2x fa-cog fa-fw"></i>
+                </li>
+            </ul>
+        </div>
+        <div class="col s12 m4">
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <h5 style="font-weight: bold;">Subscribe to our newsletter</h5>
+                        <div class="input-field">
+                            <i class="fa-regular fa-envelope prefix"></i>
+                            <input id="icon_prefix" type="text" class="validate">
+                            <label for="icon_prefix">Email address</label>
+                            <button class="waves-effect waves-light btn btn-small right white black-text"
+                                    type="submit" style="font-weight: bold; border-radius: 8px;">
+                                Subscribe
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- FontAwesome Kit -->
+    <script src="https://kit.fontawesome.com/62d08c9dc3.js" crossorigin="anonymous"></script>
+    <!-- JQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Initialization -->
+    <script>
+    $(document).ready(function(){
+        // Dropdown init
+        $('.dropdown-trigger').dropdown();
+        // Modal init
+        $('.modal').modal();
+        // Select init;
+        $('select').formSelect();
+    });
+    </script>
+</html>
