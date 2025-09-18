@@ -151,19 +151,25 @@ $(document).ready(function () {
 
   - Preserved layout but modernized with Bootstrap and FontAwesome v6.
 
-## Sample Scrrenshots
+## Sample Screenshots
 
 ### Upper Portion
 
 ![Upper](https://drive.google.com/uc?id=1fvJCLEbOGOOyUaECf7c76pOcbBTZlGrX)
 
+---
+
 ### Lower Portion
 
 ![Lower](https://drive.google.com/uc?id=1sxxF1YmtoHz8D5KQYmgdA9U4VF9_rlMf)
 
+---
+
 ### Booking Modal
 
 ![Booking Modal](https://drive.google.com/uc?id=1uyCcYKKQ2nrOCL1cIsOyFB7P1VoYm8mj)
+
+---
 
 ### Header Dropdown Menu
 
