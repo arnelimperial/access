@@ -1,237 +1,378 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Skye Suites | Access</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skye Suites | Access</title>
 
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- Google Material Icons -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Google Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
 
-  <link rel="stylesheet" href="access.css">
+    <link rel="stylesheet" href="./css/access.css" />
 
-  <!-- FontAwesome -->
-  <script src="https://kit.fontawesome.com/62d08c9dc3.js" crossorigin="anonymous"></script>
+    <!-- FontAwesome -->
+    <script
+      src="https://kit.fontawesome.com/62d08c9dc3.js"
+      crossorigin="anonymous"
+    ></script>
 
-</head>
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+  </head>
 
-<body>
-<!-- Header -->
-<header class="main-header">
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top py-5 shadow-sm">
-    <div class="container d-flex justify-content-between align-items-center">
+  <body>
+    <!-- Header -->
+    <header class="main-header">
+      <!-- Navbar -->
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-black sticky-top py-5 shadow-sm"
+      >
+        <div
+          class="container d-flex justify-content-between align-items-center"
+        >
+          <!-- MENU dropdown -->
+          <div class="dropdown">
+            <button
+              class="btn btn-light text-dark fw-bold rounded-pill dropdown-toggle px-4 py-3 fs-6"
+              type="button"
+              id="menuDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              MENU
+            </button>
+            <ul
+              class="dropdown-menu dropdown-menu-dark mt-2 fs-6"
+              aria-labelledby="menuDropdown"
+            >
+              <li>
+                <a class="dropdown-item fs-6" href="index.html"
+                  ><i class="material-icons me-2">home</i> Home</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item fs-6" href="suites.html"
+                  ><i class="material-icons me-2">hotel</i> Suites</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item fs-6" href="dining.html"
+                  ><i class="material-icons me-2">local_dining</i> Dining</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item fs-6" href="experience.html"
+                  ><i class="material-icons me-2">spa</i> Experience</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item fs-6" href="access.html"
+                  ><i class="material-icons me-2">info</i> Access</a
+                >
+              </li>
+            </ul>
+          </div>
 
-      <!-- MENU dropdown -->
-      <div class="dropdown">
-        <button class="btn btn-light text-dark fw-bold rounded-pill dropdown-toggle px-4 py-3 fs-6" 
-                type="button" id="menuDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-          MENU
-        </button>
-        <ul class="dropdown-menu dropdown-menu-dark mt-2 fs-6" aria-labelledby="menuDropdown">
-          <li><a class="dropdown-item fs-6" href="index.html"><i class="material-icons me-2">home</i> Home</a></li>
-          <li><a class="dropdown-item fs-6" href="suites.html"><i class="material-icons me-2">hotel</i> Suites</a></li>
-          <li><a class="dropdown-item fs-6" href="dining.html"><i class="material-icons me-2">local_dining</i> Dining</a></li>
-          <li><a class="dropdown-item fs-6" href="experience.html"><i class="material-icons me-2">spa</i> Experience</a></li>
-          <li><a class="dropdown-item fs-6" href="access.html"><i class="material-icons me-2">info</i> Access</a></li>
-        </ul>
+          <!-- Book Now Button -->
+          <button
+            class="btn btn-danger fw-bold rounded-pill px-4 py-3 fs-6"
+            data-bs-toggle="modal"
+            data-bs-target="#booknow"
+          >
+            BOOK NOW
+          </button>
+        </div>
+      </nav>
+
+      <!-- Showcase -->
+      <div class="container showcase text-center py-5">
+        <h1
+          class="fw-bold display-1 text-white"
+          style="text-shadow: 2px 2px 10px black"
+        >
+          ACCESS
+        </h1>
       </div>
+    </header>
 
-      <!-- Book Now Button -->
-      <button class="btn btn-danger fw-bold rounded-pill px-4 py-3 fs-6" data-bs-toggle="modal" data-bs-target="#booknow">
-        BOOK NOW
-      </button>
-    </div>
-  </nav>
+    <!-- Section: Access -->
+    <section class="section py-5">
+      <div class="container">
+        <div class="row">
+          <!-- Left column: Map -->
+          <div class="col-md-6 mb-4">
+            <h3 class="fw-bold fs-5"><em>Getting here</em></h3>
+            <p class="fs-6">Check in 3:00PM | Check-out 11:00AM</p>
+            <div class="ratio ratio-4x3">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d989848.3750780706!2d121.122367!3d14.276813!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc0d5f5c815a2e35c!2sLa%20Serena%20Restaurant!5e0!3m2!1sen!2sph!4v1669728948171!5m2!1sen!2sph"
+                width="100%"
+                height="100%"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+              ></iframe>
+            </div>
+          </div>
 
-  <!-- Showcase -->
-  <div class="container showcase text-center py-5">
-    <h1 class="fw-bold display-1 text-white" style="text-shadow: 2px 2px 10px black;">ACCESS</h1>
-  </div>
-</header>
-
-  <!-- Section: Access -->
-  <section class="section py-5">
-    <div class="container">
-      <div class="row">
-        <!-- Left column: Map -->
-        <div class="col-md-6 mb-4">
-          <h3 class="fw-bold fs-5"><em>Getting here</em></h3>
-          <p class="fs-6">Check in 3:00PM | Check-out 11:00AM</p>
-          <div class="ratio ratio-4x3">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d989848.3750780706!2d121.122367!3d14.276813!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc0d5f5c815a2e35c!2sLa%20Serena%20Restaurant!5e0!3m2!1sen!2sph!4v1669728948171!5m2!1sen!2sph"
-              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          <!-- Right column: Contact form -->
+          <div class="col-md-6">
+            <p class="fw-bold fs-5"><em>Let's get in touch</em></p>
+            <form id="contact-form">
+              <div class="mb-3">
+                <label for="title" class="form-label fw-bold">Subject</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="title"
+                  id="title"
+                  required
+                />
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="first_name" class="form-label fw-bold"
+                    >First Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="firstName"
+                    id="first_name"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="last_name" class="form-label fw-bold"
+                    >Last Name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    name="lastName"
+                    id="last_name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label fw-bold">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="email"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label fw-bold">Message</label>
+                <textarea
+                  class="form-control"
+                  name="message"
+                  id="message"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <div class="text-end">
+                <button type="submit" class="btn btn-dark rounded fw-bold">
+                  SEND
+                </button>
+              </div>
+            </form>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Right column: Contact form -->
-        <div class="col-md-6">
-          <p class="fw-bold fs-5"><em>Let's get in touch</em></p>
-          <form>
-            <div class="mb-3">
-              <label for="title" class="form-label fw-bold">Title</label>
-              <select id="title" class="form-select">
-                <option value="Mr">Mr.</option>
-                <option value="Ms">Ms.</option>
-              </select>
+    <!-- BookNow Modal -->
+    <div
+      class="modal fade"
+      id="booknow"
+      tabindex="-1"
+      aria-labelledby="booknowLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content p-4">
+          <div class="modal-header border-0">
+            <h4 class="modal-title fw-bold text-center w-100" id="booknowLabel">
+              HOTEL BOOKING
+            </h4>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <p class="fw-bold fs-5 mt-3">CONTACT INFORMATION</p>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="first_name_modal" class="form-label fw-bold"
+                  >First Name</label
+                >
+                <input type="text" class="form-control" id="first_name_modal" />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="last_name_modal" class="form-label fw-bold"
+                  >Last Name</label
+                >
+                <input type="text" class="form-control" id="last_name_modal" />
+              </div>
             </div>
             <div class="row">
               <div class="col-md-6 mb-3">
-                <label for="first_name" class="form-label fw-bold">First Name</label>
-                <input type="text" class="form-control" id="first_name">
+                <label for="phone_modal" class="form-label fw-bold"
+                  >Phone</label
+                >
+                <input type="tel" class="form-control" id="phone_modal" />
               </div>
               <div class="col-md-6 mb-3">
-                <label for="last_name" class="form-label fw-bold">Last Name</label>
-                <input type="text" class="form-control" id="last_name">
+                <label for="email_modal" class="form-label fw-bold"
+                  >Email</label
+                >
+                <input type="email" class="form-control" id="email_modal" />
               </div>
             </div>
-            <div class="mb-3">
-              <label for="email" class="form-label fw-bold">Email</label>
-              <input type="email" class="form-control" id="email">
+
+            <p class="fw-bold fs-5 mt-4">BOOKING DETAILS</p>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-bold">Check-in</label>
+                <input type="datetime-local" class="form-control" />
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-bold">Check-out</label>
+                <input type="datetime-local" class="form-control" />
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="message" class="form-label fw-bold">Message</label>
-              <textarea class="form-control" id="message" rows="3"></textarea>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-bold">Adults</label>
+                <select class="form-select">
+                  <option value="1">1 Adult</option>
+                  <option value="2">2 Adults</option>
+                  <option value="3">3 Adults</option>
+                  <option value="4">4 Adults</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-bold">Children</label>
+                <select class="form-select">
+                  <option value="0">0 Child</option>
+                  <option value="1">1 Child</option>
+                  <option value="2">2 Children</option>
+                  <option value="3">3 Children</option>
+                </select>
+              </div>
             </div>
-            <div class="text-end">
-              <button type="submit" class="btn btn-dark rounded fw-bold">SEND</button>
+
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-bold">Suite</label>
+                <select class="form-select">
+                  <option value="silene-junior-suite">
+                    Silene Junior Suite
+                  </option>
+                  <option value="lupine-junior-suite">
+                    Lupine Junior Suite
+                  </option>
+                  <option value="silene-suite">Silene Suite</option>
+                  <option value="lupine-suite">Lupine Suite</option>
+                </select>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-bold">Board</label>
+                <select class="form-select">
+                  <option value="breakfast">Breakfast</option>
+                  <option value="half-board">Half Board</option>
+                </select>
+              </div>
             </div>
-          </form>
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              type="button"
+              class="btn btn-dark fw-bold w-100"
+              data-bs-dismiss="modal"
+            >
+              SUBMIT
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </section>
 
-  <!-- BookNow Modal -->
-  <div class="modal fade" id="booknow" tabindex="-1" aria-labelledby="booknowLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content p-4">
-        <div class="modal-header border-0">
-          <h4 class="modal-title fw-bold text-center w-100" id="booknowLabel">HOTEL BOOKING</h4>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <p class="fw-bold fs-5 mt-3">CONTACT INFORMATION</p>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="first_name_modal" class="form-label fw-bold">First Name</label>
-              <input type="text" class="form-control" id="first_name_modal">
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="last_name_modal" class="form-label fw-bold">Last Name</label>
-              <input type="text" class="form-control" id="last_name_modal">
+    <!-- Footer -->
+    <footer class="page-footer mt-5">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-md-4">
+            <h5 class="fw-bold">Contact Us</h5>
+            <ul class="list-unstyled">
+              <li>
+                <i class="fa-solid fa-location-dot me-2"></i> 631 Douglas
+                Mountains <br />
+                New Mireilleshire Indiana USA
+              </li>
+              <li><i class="fa-solid fa-phone me-2"></i> 204-663-3258</li>
+              <li>
+                <i class="fa-solid fa-envelope me-2"></i>
+                info@skyesuiteshotel.com
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5 class="fw-bold">Follow Us</h5>
+            <div class="d-flex gap-3">
+              <i class="fa-brands fa-facebook fa-2x"></i>
+              <i class="fa-brands fa-instagram fa-2x"></i>
+              <i class="fa-brands fa-pinterest fa-2x"></i>
+              <i class="fa-brands fa-youtube fa-2x"></i>
             </div>
           </div>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label for="phone_modal" class="form-label fw-bold">Phone</label>
-              <input type="tel" class="form-control" id="phone_modal">
-            </div>
-            <div class="col-md-6 mb-3">
-              <label for="email_modal" class="form-label fw-bold">Email</label>
-              <input type="email" class="form-control" id="email_modal">
-            </div>
+          <div class="col-md-4">
+            <h5 class="fw-bold">Subscribe to our newsletter</h5>
+            <form class="d-flex flex-column">
+              <div class="input-group mb-3">
+                <span class="input-group-text bg-white"
+                  ><i class="fa-regular fa-envelope"></i
+                ></span>
+                <input
+                  type="email"
+                  class="form-control"
+                  placeholder="Email address"
+                />
+              </div>
+              <button
+                type="submit"
+                class="btn btn-light text-dark fw-bold rounded"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
-
-          <p class="fw-bold fs-5 mt-4">BOOKING DETAILS</p>
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label class="form-label fw-bold">Check-in</label>
-              <input type="datetime-local" class="form-control">
-            </div>
-            <div class="col-md-6 mb-3">
-              <label class="form-label fw-bold">Check-out</label>
-              <input type="datetime-local" class="form-control">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label class="form-label fw-bold">Adults</label>
-              <select class="form-select">
-                <option value="1">1 Adult</option>
-                <option value="2">2 Adults</option>
-                <option value="3">3 Adults</option>
-                <option value="4">4 Adults</option>
-              </select>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label class="form-label fw-bold">Children</label>
-              <select class="form-select">
-                <option value="0">0 Child</option>
-                <option value="1">1 Child</option>
-                <option value="2">2 Children</option>
-                <option value="3">3 Children</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6 mb-3">
-              <label class="form-label fw-bold">Suite</label>
-              <select class="form-select">
-                <option value="silene-junior-suite">Silene Junior Suite</option>
-                <option value="lupine-junior-suite">Lupine Junior Suite</option>
-                <option value="silene-suite">Silene Suite</option>
-                <option value="lupine-suite">Lupine Suite</option>
-              </select>
-            </div>
-            <div class="col-md-6 mb-3">
-              <label class="form-label fw-bold">Board</label>
-              <select class="form-select">
-                <option value="breakfast">Breakfast</option>
-                <option value="half-board">Half Board</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer border-0">
-          <button type="button" class="btn btn-dark fw-bold w-100" data-bs-dismiss="modal">SUBMIT</button>
         </div>
       </div>
-    </div>
-  </div>
+    </footer>
 
-  <!-- Footer -->
-  <footer class="page-footer mt-5">
-    <div class="container">
-      <div class="row gy-4">
-        <div class="col-md-4">
-          <h5 class="fw-bold">Contact Us</h5>
-          <ul class="list-unstyled">
-            <li><i class="fa-solid fa-location-dot me-2"></i> 631 Douglas Mountains <br> New Mireilleshire Indiana USA</li>
-            <li><i class="fa-solid fa-phone me-2"></i> 204-663-3258</li>
-            <li><i class="fa-solid fa-envelope me-2"></i> info@skyesuiteshotel.com</li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <h5 class="fw-bold">Follow Us</h5>
-          <div class="d-flex gap-3">
-            <i class="fa-brands fa-facebook fa-2x"></i>
-            <i class="fa-brands fa-instagram fa-2x"></i>
-            <i class="fa-brands fa-pinterest fa-2x"></i>
-            <i class="fa-brands fa-youtube fa-2x"></i>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <h5 class="fw-bold">Subscribe to our newsletter</h5>
-          <form class="d-flex flex-column">
-            <div class="input-group mb-3">
-              <span class="input-group-text bg-white"><i class="fa-regular fa-envelope"></i></span>
-              <input type="email" class="form-control" placeholder="Email address">
-            </div>
-            <button type="submit" class="btn btn-light text-dark fw-bold rounded">Subscribe</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Bootstrap 5 JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <!-- Custom JS -->
+    <script type="module" src="js/access.js"></script>
+    
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>

@@ -1,0 +1,4 @@
+# hide config and credentials
+/js/configuration.js
+
+/js/firebase.js

@@ -1,5 +1,7 @@
 # access
 
+Check out [this link](https://github.com/arnelimperial/access/blob/main/SETUP.md) if you want to setup a project based on this one.
+
 ## 1. General Framework Replacement
 
 - **Original:** Used [MaterializeCSS 1.0.0](https://materializecss.com/).
