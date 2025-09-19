@@ -1,4 +1,4 @@
-#  Project Setup Instructions
+# Project Setup Instructions
 
 ## Project Structure
 
@@ -8,7 +8,7 @@ Here's the relevant part of the project:
 project-root/
 │
 ├── js/
-│   ├── access.js              ← Main logic 
+│   ├── access.js              ← Main logic
 │   ├── firebase.js            ← Firebase logic (NOT committed)
 │   ├── configuration.js       ← EmailJS keys (NOT committed)
 │   ├── firebase.example.js    ← Sample config
@@ -23,14 +23,14 @@ project-root/
 
 ## Prerequisites
 
-* A **Firebase project**
-* A **Firebase Realtime Database** setup
-* **Authentication → Anonymous Sign-in** enabled
-* An **EmailJS account** with:
+- A **Firebase project**
+- A **Firebase Realtime Database** setup
+- **Authentication → Anonymous Sign-in** enabled
+- An **EmailJS account** with:
 
-  * A **service**
-  * A **template**
-  * A **public key**
+  - A **service**
+  - A **template**
+  - A **public key**
 
 ---
 
@@ -69,7 +69,7 @@ cp js/configuration.example.js js/configuration.js
 2. Create a new project (or use an existing one)
 3. Enable **Realtime Database**:
 
-   * Set rules to:
+   - Set rules to:
 
      ```json
      {
@@ -79,13 +79,15 @@ cp js/configuration.example.js js/configuration.js
        }
      }
      ```
+
 4. Go to **Authentication → Sign-in Method**
 
-   * Enable **Anonymous** sign-in
+   - Enable **Anonymous** sign-in
+
 5. Go to **Project Settings → General**
 
-   * Scroll to **Your Apps → Web App**, click **\</>** to create one
-   * Copy the config and paste it into `js/firebase.js`
+   - Scroll to **Your Apps → Web App**, click **\</>** to create one
+   - Copy the config and paste it into `js/firebase.js`
 
 Your config should look like this:
 
@@ -97,7 +99,7 @@ const firebaseConfig = {
   projectId: "YOUR_PROJECT",
   storageBucket: "YOUR_PROJECT.appspot.com",
   messagingSenderId: "SENDER_ID",
-  appId: "APP_ID"
+  appId: "APP_ID",
 };
 ```
 
@@ -110,12 +112,14 @@ const firebaseConfig = {
 3. Add a new **Email Service**
 4. Create a new **Email Template**
 
-   * Add placeholders like `{{title}}`, `{{firstName}}`, `{{lastName}}`, `{{email}}`, `{{message}}`
+   - Add placeholders like `{{title}}`, `{{firstName}}`, `{{lastName}}`, `{{email}}`, `{{message}}`
+
 5. In your dashboard, get:
 
-   * **Service ID**
-   * **Template ID**
-   * **Public Key**
+   - **Service ID**
+   - **Template ID**
+   - **Public Key**
+
 6. Paste those into `js/configuration.js`:
 
 ```js
@@ -142,17 +146,18 @@ open access.html
 
 ## Testing
 
-* ✅ Check Firebase Console → Realtime Database → `messages` node
-* ✅ Check your email inbox or EmailJS dashboard for the received message
+- ✅ Check Firebase Console → Realtime Database → `messages` node
+- ✅ Check your email inbox or EmailJS dashboard for the received message
 
 ---
 
 ## 🔐 Important Notes
 
-* Your **Firebase config** and **EmailJS public key** are *safe to expose* in frontend apps
+- Your **Firebase config** and **EmailJS public key** are _safe to expose_ in frontend apps
 
-  * But do **NOT expose** private Firebase Admin SDK keys or secret EmailJS keys
-* Keep your Firebase rules restrictive:
+  - But do **NOT expose** private Firebase Admin SDK keys or secret EmailJS keys
+
+- Keep your Firebase rules restrictive:
 
   ```json
   {
@@ -162,3 +167,35 @@ open access.html
     }
   }
   ```
+
+  ***
+
+## Sample Screenshots
+
+### Contact Form Before Submission
+
+![Contact Form: Before Submission](https://drive.google.com/uc?id=1JOjaGM4Ia7Y4ovZvmy2bAJBQue62OqXP)
+
+### Contact Formon Successful Submission
+
+![Contact Form: Successful Submission](https://drive.google.com/uc?id=1tF_NwyzODBW5zxAb0s0cen_cxy7kS3op)
+
+### Contact Form: Recipient Received Submitter's Details
+
+![Contact Form: Recipient Received Details](https://drive.google.com/uc?id=1uiymBZTNty7qwVoedujVEtUz2KgWh5-H)
+
+### Contact Form: Submitter's Details Saved on DB
+
+![Contact Form: Submitter's Details Saved on DB](https://drive.google.com/uc?id=1z_gWY-JOG6gChWH1e9G6bXUJyZmyjDao)
+
+### Booking Form: Before Submission
+
+![Booking Form: Before Submission](https://drive.google.com/uc?id=1r89ovDEs_P8QWK87kaXHPBk7H4IWBfw4)
+
+### Booking Form: Successful Submission
+
+![Booking Form: Successful Submission](https://drive.google.com/uc?id=1-Gm7u4a_uNDFmkrjOD66GbYmgVsplFy3)
+
+### Booking Form: Sumitter's Details Saved on DB
+
+![Booking Form: Submiter's Details Saved on DB](https://drive.google.com/uc?id=1XqUOMcNrbbV7rYbVCN-FfHQLMOS-ibKN)

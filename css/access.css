@@ -20,3 +20,23 @@ nav a {
   color: #fff;
   background-color: black;
 }
+
+/* Add extra spacing between form fields and error messages */
+.form-control.is-invalid {
+  margin-bottom: 0.25rem;
+}
+
+.invalid-feedback {
+  display: block;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.is-valid {
+  border-color: #28a745 !important; /* Green for valid inputs */
+}
+
+.is-invalid {
+  border-color: #dc3545 !important; /* Red for invalid inputs */
+}
+

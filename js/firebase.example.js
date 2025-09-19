@@ -1,5 +1,3 @@
-// ➤ Rename to firebase.js and add your Firebase config
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
 import {
   getDatabase,
@@ -14,7 +12,8 @@ import {
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
 
-// 🔐 Replace these with your Firebase project config
+
+// Replace these with your Firebase project config
 const firebaseConfig = {
   apiKey: "your_api_key",
   authDomain: "your_project_id.firebaseapp.com",
@@ -24,6 +23,7 @@ const firebaseConfig = {
   messagingSenderId: "your_sender_id",
   appId: "your_app_id"
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -39,10 +39,19 @@ signInAnonymously(auth)
     console.error("Auth error:", error);
   });
 
-// Expose functions (optional)
-export function saveMessage(data) {
-  const newRef = push(ref(database, "messages"));
-  return set(newRef, data);
+// Expose functions for Contact Form and Booking Form
+
+// Save contact message data to Firebase under "contactMessages"
+export function saveContactMessage(data) {
+  const contactMessageRef = push(ref(database, "contactMessages"));
+  return set(contactMessageRef, data);
+}
+
+// Save booking data to Firebase under "bookingRequests"
+export function saveBookingRequest(data) {
+  const bookingRequestRef = push(ref(database, "bookingRequests"));
+  return set(bookingRequestRef, data);
 }
 
 export { auth, database };
+
