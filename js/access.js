@@ -28,18 +28,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Send via EmailJS
     emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
       .then(() => {
-        console.log("✅ Email sent");
+        console.log("Email sent");
 
         // Save to Firebase after email success
         return saveMessage(formData);
       })
       .then(() => {
-        console.log("✅ Data saved to Firebase");
+        console.log("Data saved to Firebase");
         alert("Message sent and saved successfully!");
         this.reset();
       })
       .catch((error) => {
-        console.error("❌ Error:", error);
+        console.error("Error:", error);
         alert("Something went wrong. Please try again.");
       });
   });
