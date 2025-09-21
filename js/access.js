@@ -1,4 +1,4 @@
-import { saveContactMessage } from './firebase.js';
+import { saveContactMessage, auth } from './firebase.js';
 import { validateEmail } from './validators.js'; 
 import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from './configuration.js';
 
@@ -6,7 +6,18 @@ import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from './c
 emailjs.init(EMAILJS_PUBLIC_KEY);
 
 (function() {
-  // DOM Ready
+  let firebaseAuthReady = false;
+
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      firebaseAuthReady = true;
+      console.log("Firebase anonymous auth ready with uid:", user.uid);
+    } else {
+      firebaseAuthReady = false;
+      console.log("Firebase user not authenticated.");
+    }
+  });
+
   document.addEventListener("DOMContentLoaded", () => {
     const contactForm = document.getElementById("contact-form");
 
@@ -15,18 +26,14 @@ emailjs.init(EMAILJS_PUBLIC_KEY);
       return;
     }
 
-    // Validation function for Contact Form
     function validateContactForm(form) {
       let isValid = true;
+      form.querySelectorAll('.invalid-feedback').forEach(el => el.remove());
+      form.querySelectorAll('.form-control').forEach(input => {
+        input.classList.remove('is-invalid', 'is-valid');
+      });
 
-      // Clear previous error messages
-      const errorMessages = form.querySelectorAll('.invalid-feedback');
-      errorMessages.forEach(error => error.remove());
-      const inputs = form.querySelectorAll('.form-control');
-      inputs.forEach(input => input.classList.remove('is-invalid', 'is-valid'));
-
-      // Validate Subject
-      const title = form.title.value.trim();
+      let title = form.title.value.trim();
       if (!title) {
         showError(form.title, "Subject is required.");
         isValid = false;
@@ -34,8 +41,7 @@ emailjs.init(EMAILJS_PUBLIC_KEY);
         showValid(form.title);
       }
 
-      // Validate First Name
-      const firstName = form.firstName.value.trim();
+      let firstName = form.firstName.value.trim();
       if (!firstName) {
         showError(form.firstName, "First name is required.");
         isValid = false;
@@ -43,8 +49,7 @@ emailjs.init(EMAILJS_PUBLIC_KEY);
         showValid(form.firstName);
       }
 
-      // Validate Last Name
-      const lastName = form.lastName.value.trim();
+      let lastName = form.lastName.value.trim();
       if (!lastName) {
         showError(form.lastName, "Last name is required.");
         isValid = false;
@@ -52,9 +57,8 @@ emailjs.init(EMAILJS_PUBLIC_KEY);
         showValid(form.lastName);
       }
 
-      // Validate Email
-      const email = form.email.value.trim();
-      const emailError = validateEmail(email);
+      let email = form.email.value.trim();
+      let emailError = validateEmail(email);
       if (emailError) {
         showError(form.email, emailError);
         isValid = false;
@@ -62,8 +66,7 @@ emailjs.init(EMAILJS_PUBLIC_KEY);
         showValid(form.email);
       }
 
-      // Validate Message
-      const message = form.message.value.trim();
+      let message = form.message.value.trim();
       if (!message) {
         showError(form.message, "Message is required.");
         isValid = false;
@@ -74,7 +77,6 @@ emailjs.init(EMAILJS_PUBLIC_KEY);
       return isValid;
     }
 
-    // Show error messages and apply invalid styles
     function showError(input, message) {
       const error = document.createElement('div');
       error.classList.add('invalid-feedback');
@@ -83,14 +85,17 @@ emailjs.init(EMAILJS_PUBLIC_KEY);
       input.insertAdjacentElement('afterend', error);
     }
 
-    // Apply valid styles
     function showValid(input) {
       input.classList.add('is-valid');
     }
 
-    // Contact Form submit handler
-    contactForm.addEventListener("submit", function (event) {
-      event.preventDefault(); // Prevent form submission
+    contactForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      if (!firebaseAuthReady) {
+        alert("Initializing service, please wait a moment and try again.");
+        return;
+      }
 
       if (validateContactForm(this)) {
         const contactData = {
@@ -102,21 +107,16 @@ emailjs.init(EMAILJS_PUBLIC_KEY);
           submittedAt: new Date().toISOString(),
         };
 
-        // First, send the email using EmailJS
         emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
           .then(() => {
             console.log("Email sent");
-
-            // Then save the contact message to Firebase
             return saveContactMessage(contactData);
           })
           .then(() => {
             console.log("Data saved to Firebase");
-
             alert("Message sent and saved successfully!");
-
-            // Reset form fields
             this.reset();
+            this.querySelectorAll('.is-valid').forEach(el => el.classList.remove('is-valid'));
           })
           .catch((error) => {
             console.error("Error:", error);

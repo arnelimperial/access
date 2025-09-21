@@ -5,7 +5,7 @@ import { validateEmail, validatePhoneNumber } from "./validators.js";
   // DOM Ready
   document.addEventListener("DOMContentLoaded", () => {
     const bookingForm = document.getElementById("booking-form");
-    const bookingModal = new bootstrap.Modal(document.getElementById('booknow'));
+    const bookingModal = new bootstrap.Modal(document.getElementById('bookingModal'));
     const successMessage = document.createElement('div'); 
 
     if (!bookingForm) {
@@ -26,21 +26,21 @@ import { validateEmail, validatePhoneNumber } from "./validators.js";
       );
 
       // Validate First Name
-      const firstName = form.first_name.value.trim();
+      const firstName = form.firstName.value.trim();
       if (!firstName) {
-        showError(form.first_name, "First name is required.");
+        showError(form.firstName, "First name is required.");
         isValid = false;
       } else {
-        showValid(form.first_name);
+        showValid(form.firstName);
       }
 
       // Validate Last Name
-      const lastName = form.last_name.value.trim();
+      const lastName = form.lastName.value.trim();
       if (!lastName) {
-        showError(form.last_name, "Last name is required.");
+        showError(form.lastName, "Last name is required.");
         isValid = false;
       } else {
-        showValid(form.last_name);
+        showValid(form.lastName);
       }
 
       // Validate Phone Number
@@ -112,8 +112,8 @@ import { validateEmail, validatePhoneNumber } from "./validators.js";
 
       if (validateBookingForm(this)) {
         const bookingData = {
-          firstName: this.first_name.value,
-          lastName: this.last_name.value,
+          firstName: this.firstName.value,
+          lastName: this.lastName.value,
           phone: this.phone.value,
           email: this.email.value,
           checkin: this.checkin.value,
