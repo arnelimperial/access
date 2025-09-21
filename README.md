@@ -1,6 +1,6 @@
 # access
 
-Check out [this link](https://github.com/arnelimperial/access/blob/main/SETUP.md) if you want to setup a project based on this one.
+Proof-of-Concept web project for the main project at [this link](https://github.com/Gracielleee/WebSysTech_H3101_Group-15).
 
 ## Wireframe Documentation
 
