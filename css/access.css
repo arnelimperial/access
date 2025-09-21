@@ -1,42 +1,439 @@
+/*=============== Root Variables for Colors, Fonts, and Measurements ===============*/
+:root {
+  --color-primary: #e63946;
+  --color-primary-dark: #b12229;
+  --color-bg-dark: #000;
+  --color-bg-light: #fff;
+  --color-text-light: #f0f0f0;
+  --color-text-dark: #333;
+  --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --border-radius: 0.5rem;
+  --transition: 0.3s ease;
+}
+
+/*=============== Global Resets and Box Sizing ===============*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Helvetica, sans-serif;
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg-light);
+  color: var(--color-text-dark);
+  line-height: 1.6;
   scroll-behavior: smooth;
-}
-.main-header {
-  min-height: 500px;
-  background-color: #000;
-}
-.main-header .showcase {
-  padding-top: 100px;
-}
-nav a {
-  color: #fff;
-  font-size: 2rem;
-  font-weight: bold;
-}
-.page-footer {
-  padding-top: 35px;
-  padding-bottom: 20px;
-  color: #fff;
-  background-color: black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Add extra spacing between form fields and error messages */
-.form-control.is-invalid {
-  margin-bottom: 0.25rem;
+/*=============== Link Base Styles ===============*/
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover,
+a:focus {
+  color: var(--color-primary);
+  outline: none;
 }
 
-.invalid-feedback {
-  display: block;
-  font-size: 0.875rem;
-  margin-top: 0.25rem;
+/*=============== Accessibility Utility Class ===============*/
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
-.is-valid {
-  border-color: #28a745 !important; /* Green for valid inputs */
+/*=============== Header Block ===============*/
+.header {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  padding-bottom: 2rem;
 }
 
-.is-invalid {
-  border-color: #dc3545 !important; /* Red for invalid inputs */
+/*======= Navbar Block =======*/
+.navbar {
+  background-color: var(--color-bg-dark);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.navbar__container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/*======= Dropdown Block and Elements (for small screens) =======*/
+.dropdown {
+  position: relative;
+  display: none; /* hide by default, show on small screens */
+}
+
+.dropdown__button {
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 2rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  transition: background-color var(--transition);
+  user-select: none;
+  background-color: var(--color-bg-light);
+  color: var(--color-bg-dark);
+  box-shadow: 0 2px 8px rgb(230 57 70 / 0.2);
+  filter: drop-shadow(0 1px 1px rgb(230 57 70 / 0.3));
+}
+.dropdown__button:hover,
+.dropdown__button:focus-visible {
+  background-color: #f2f2f2;
+  outline: none;
+}
+
+.dropdown__menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  background: var(--color-bg-dark);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+  border-radius: var(--border-radius);
+  min-width: 180px;
+  list-style: none;
+  padding: 0.5rem 0;
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: top center;
+  transform: scaleY(0);
+  transition: opacity var(--transition), transform var(--transition);
+  z-index: 200;
+}
+
+.dropdown:focus-within .dropdown__menu,
+.dropdown:hover .dropdown__menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scaleY(1);
+}
+
+.dropdown__menu-item {
+  padding: 0;
+}
+
+.dropdown__menu-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--color-text-light);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: background-color var(--transition);
+}
+.dropdown__menu-link:hover,
+.dropdown__menu-link:focus {
+  background-color: var(--color-primary);
+  outline: none;
+  color: var(--color-bg-light);
+}
+
+.dropdown__icon {
+  font-size: 1.25rem;
+}
+
+/*======= Horizontal menu for large screens =======*/
+.navbar__menu {
+  display: none; /* hidden by default, shown on large screens */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.navbar__menu-link {
+  color: var(--color-text-light);
+  font-weight: 600;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  padding: 0.75rem 0;
+  transition: color var(--transition);
+}
+
+.navbar__menu-link:hover,
+.navbar__menu-link:focus {
+  color: var(--color-primary);
+  outline: none;
+}
+
+/*======= CTA Button (used in Navbar and form) =======*/
+.button {
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 2rem;
+  border-radius: var(--border-radius);
+  font-weight: 700;
+  font-size: 1.125rem;
+  transition: background-color var(--transition), box-shadow var(--transition);
+  user-select: none;
+  text-align: center;
+  display: inline-block;
+  box-shadow: 0 4px 14px rgba(230, 57, 70 / 0.5);
+  background-color: var(--color-primary);
+  color: var(--color-bg-light);
+}
+
+.button:hover,
+.button:focus-visible {
+  background-color: var(--color-primary-dark);
+  outline-offset: 2px;
+  outline: 2px solid var(--color-primary-dark);
+  box-shadow: 0 0 16px var(--color-primary-dark);
+}
+
+.navbar__book-button {
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  box-shadow: 0 3px 8px var(--color-primary);
+}
+
+/*=============== Showcase Block ===============*/
+.showcase {
+  text-align: center;
+  padding: 8rem 1rem 6rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+    url('/images/lobby.jpg') center/cover no-repeat;
+}
+
+.showcase__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  color: var(--color-bg-light);
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+  margin: 0;
+  letter-spacing: 0.12em;
+}
+
+/*=============== Main Section Block ===============*/
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 3rem 1.5rem;
+  color: var(--color-text-dark);
+}
+
+.section__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+}
+
+.section__column--left h2 {
+  font-weight: 700;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.section__column--left p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.map__iframe {
+  width: 100%;
+  height: 320px;
+  border: 0;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+}
+
+.section__column--right p.section__intro {
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  font-size: 1.125rem;
+}
+
+/*=============== Form Block and Elements ===============*/
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form__group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__label {
+  font-weight: 700;
+  margin-bottom: 0.375rem;
+  font-size: 1rem;
+}
+
+.form__input,
+.form__textarea {
+  padding: 0.75rem 1rem;
+  border: 1.8px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  resize: vertical;
+}
+
+.form__input:focus,
+.form__textarea:focus {
+  border-color: var(--color-primary);
+  outline: none;
+  box-shadow: 0 0 5px var(--color-primary);
+}
+
+.form__textarea {
+  min-height: 80px;
+}
+
+.form__footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form__submit,
+.form__subscribe {
+  cursor: pointer;
+}
+
+/*=============== Footer Block and Elements ===============*/
+.footer {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  padding: 3.5rem 1.5rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
+    url('/images/hotel.jpg') center/cover no-repeat;
+}
+
+.footer__container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.footer__heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.footer__list {
+  padding: 0;
+  list-style: none;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.footer__list-item {
+  margin-bottom: 0.85rem;
+}
+
+.footer__socials {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.footer__social-link {
+  color: var(--color-text-light);
+  font-size: 1.5rem;
+  transition: color var(--transition);
+}
+
+.footer__social-link:hover,
+.footer__social-link:focus-visible {
+  color: var(--color-primary);
+  outline: none;
+}
+
+/*=============== Responsive Typography and Layout Adjustments ===============*/
+@media (max-width: 600px) {
+  .dropdown__button,
+  .navbar__book-button,
+  .form__submit,
+  .form__subscribe {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+  }
+
+  .showcase__title {
+    font-size: 2.5rem;
+  }
+
+  .form__submit,
+  .form__subscribe {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .footer__container,
+  .section__container {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dropdown__menu {
+    position: static;
+    transform: none !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  .dropdown:hover .dropdown__menu {
+    display: block;
+  }
+}
+
+/*=============== Menu Visibility for Screen Sizes ===============*/
+
+/* Ensure dropdown on all small devices and smallest screens */
+@media (max-width: 1024px) {
+  .dropdown {
+    display: block;
+  }
+  .navbar__menu {
+    display: none;
+  }
+}
+
+/* Horizontal menu only on large screens */
+@media (min-width: 1025px) {
+  .dropdown {
+    display: none;
+  }
+  .navbar__menu {
+    display: flex;
+  }
+}
