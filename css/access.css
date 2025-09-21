@@ -221,7 +221,7 @@ a:focus {
   text-align: center;
   padding: 8rem 1rem 6rem;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
-    url('/images/lobby.jpg') center/cover no-repeat;
+    url('../images/lobby.jpg') center/cover no-repeat;
 }
 
 .showcase__title {
@@ -330,7 +330,7 @@ a:focus {
   color: var(--color-text-light);
   padding: 3.5rem 1.5rem;
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
-    url('/images/hotel.jpg') center/cover no-repeat;
+    url('../images/hotel.jpg') center/cover no-repeat;
 }
 
 .footer__container {
