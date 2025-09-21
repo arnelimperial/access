@@ -2,177 +2,74 @@
 
 Check out [this link](https://github.com/arnelimperial/access/blob/main/SETUP.md) if you want to setup a project based on this one.
 
-## 1. General Framework Replacement
+## Wireframe Documentation
 
-- **Original:** Used [MaterializeCSS 1.0.0](https://materializecss.com/).
-- **Replica:** Migrated fully to [Bootstrap 5](https://getbootstrap.com/).
-- **Reason:** Bootstrap is more widely adopted, has better long-term support, and doesn’t require jQuery for components.
+Please check [this link](https://github.com/Gracielleee/WebSysTech_H3101_Group-15/blob/main/WIREFRAME.md) for the wireframe documentation.
 
----
+## MS 1 Project Documentation
 
-## 2. Header & Navbar
+### **Access Page**
 
-### Original
+#### Tools and Techniques Used
 
-- Materialize **transparent navbar** with `dropdown-trigger` for menu and `modal-trigger` for booking.
-- Positioned using inline `padding-top: 50px;`.
-- Sticky behavior handled by `navbar-fixed`.
+- **HTML5 & Semantic Markup**  
+  Utilized semantic HTML5 elements (`<header>`, `<nav>`, `<main>`, `<footer>`, `<section>`) to structure content clearly and improve accessibility.
 
-### Replica
+- **CSS3 with Modern Features and BEM Methodology**  
+  Leveraged CSS Grid and Flexbox for flexible and responsive layouts, CSS variables for consistent theming, and `clamp()` for fluid typography scaling.  
+  Adopted Block Element Modifier (BEM) naming conventions in CSS and HTML to improve class naming clarity, modularity, and maintainability.
 
-- Bootstrap **`navbar navbar-dark bg-black sticky-top`** with `dropdown` for menu and `modal` for booking.
-- Removed inline padding hack → replaced with `py-5` to push navbar slightly lower.
-- **Buttons:**
+- **Accessibility Best Practices**  
+  Implemented ARIA roles and attributes, keyboard-focus-visible styles, descriptive labels, and structured focus states to enhance usability for screen readers and keyboard users.
 
-  - MENU → Bootstrap dropdown button (`btn btn-light rounded-pill dropdown-toggle`).
-  - BOOK NOW → Bootstrap modal trigger (`btn btn-danger rounded-pill`).
+- **External Libraries**  
+  Integrated Google Material Icons and FontAwesome for intuitive, scalable iconography, enhancing visual cues without adding image asset weight.
 
-- **Tweaks:**
+- **Responsive and Modular Design**  
+  Developed a mobile-first responsive layout using CSS Grid and Flexbox, designed with reusable BEM blocks and elements. This makes future integration with CSS frameworks like Bootstrap or Tailwind more straightforward.
 
-  - Buttons initially made **too large** → adjusted down (`px-4 py-2 fs-6`).
-  - MENU dropdown text originally too big → reduced to `.fs-6`.
+- **Performance and Security**  
+  Adopted deferred loading for external scripts and appropriate iframe attributes (`loading="lazy"`, `referrerpolicy`) to optimize loading speed and user security.
 
-**Result:** Navbar is sticky, buttons are balanced in size, dropdown list text smaller (closer to Materialize look).
+- **Collaboration-Focused Documentation and Comments**  
+  Added detailed comments in CSS and HTML to clearly identify sections, blocks, and elements, facilitating easier collaboration and future project maintenance.
 
----
+#### Challenges Faced and Improvements Made
 
-## 3. Showcase (Hero Section)
+- **Transition to BEM Naming**  
+  Refactored all CSS and HTML classes following the BEM methodology to systematically separate blocks, elements, and modifiers. This improved code readability, prevented style clashes, and enhanced scalability for future project growth.
 
-### Original
+- **Preparation for CSS Framework Integration**  
+  Structured classes to be compatible with Bootstrap or Tailwind utility classes, facilitating potential migration or hybrid use without rewriting major portions of code.
 
-- Centered `<h1>` with Materialize grid.
-- Used inline styling for font, shadow, and spacing.
+- **Responsive Navigation Menu Enhancements**  
+  Improved dropdown menu behavior and accessibility on smaller screens, supporting keyboard navigation and consistent visual focus cues.
 
-### Replica
+- **Theming Consistency and Variable Use**  
+  Enhanced maintainability by using CSS variables across colors, font families, and border radii, simplifying theme adjustments and ensuring visual consistency.
 
-- Bootstrap **container showcase text-center py-5**.
-- Preserved font styling + `text-shadow`.
-- No functional changes, only cleaner Bootstrap markup.
+- **Form Accessibility and User Experience**  
+  Enhanced form controls with semantic labels, focus states, and appropriate HTML attributes (`autocomplete`, `novalidate`) to create an intuitive and frictionless contact experience.
 
----
+- **Flexible Layout Using CSS Grid**  
+  Moved from fixed-width flexbox columns to a responsive grid system with auto-fit and minmax to better adapt to variable screen sizes while preserving content structure.
 
-## 4. Access Section (Map + Contact Form)
+- **Performance Optimizations**  
+  Continued emphasizing non-blocking resource loading and minimal CSS overrides to ensure fast page load and smooth user interaction.
 
-### Original
+#### Design and Development Decisions
 
-- Materialize grid system (`col s12 m6`).
-- Form fields styled with `input-field`, `validate`, and floating labels.
-- Dropdowns required `formSelect()` initialization.
+- **Mobile-First, Accessibility-First Approach**  
+  Focused on ensuring an inclusive, accessible experience for all users starting from mobile devices upward.
 
-### Replica
+- **Semantic and Well-Commented Markup**  
+  Maintained best practices in semantic tagging combined with detailed comments to improve project understandability and search engine optimization (SEO).
 
-- Bootstrap grid (`col-md-6`).
-- Form fields converted to **Bootstrap floating labels** where appropriate.
-- Dropdowns replaced with `<select class="form-select">` (no JS needed).
-- Materialize’s textarea (`materialize-textarea`) replaced with `<textarea class="form-control">`.
+- **BEM and Modular CSS for Scalable Styling**  
+  Adopted BEM to improve maintainability and make the stylesheet modular and easy to extend.
 
-**Result:** Functionality identical, cleaner and simpler with Bootstrap.
+- **Icon Libraries for Lightweight UI Enhancement**  
+  Used Material Icons and FontAwesome to efficiently include rich iconography with minimal performance impact.
 
----
-
-## 5. Book Now Modal
-
-### Original
-
-- Materialize modal (`.modal` + `.modal-trigger`).
-- Used Materialize select fields and datetime pickers.
-- Required initialization via `$('.modal').modal(); $('select').formSelect();`.
-
-### Replica
-
-- Bootstrap modal (`.modal fade` + `data-bs-toggle="modal"`).
-- Selects → `<select class="form-select">`.
-- Date/time inputs → native `<input type="datetime-local">`.
-- Footer button replaced with Bootstrap-styled **modal-close** equivalent.
-
-**Result:** Same layout, works natively without extra JavaScript.
-
----
-
-## 6. Footer
-
-### Original
-
-- Materialize footer (`.page-footer`).
-- Social icons using FontAwesome v4.7.
-- Newsletter form with Materialize `input-field`.
-
-### Replica
-
-- Bootstrap grid (`col-md-4`).
-- FontAwesome upgraded to v6 (via Kit).
-- Newsletter input → `<input class="form-control">` with button styled as `btn btn-dark`.
-
-**Result:** Visual style close to original, fully Bootstrap-aligned.
-
----
-
-## 7. JavaScript
-
-### Original
-
-```javascript
-$(document).ready(function () {
-  $(".dropdown-trigger").dropdown();
-  $(".modal").modal();
-  $("select").formSelect();
-});
-```
-
-### Replica
-
-- Removed jQuery and Materialize JS initialization.
-- Bootstrap handles **dropdowns, modals, and selects natively** using `data-bs-*` attributes.
-- Only Bootstrap 5 JS bundle is required.
-
-**Result:** Simpler, leaner, no jQuery dependency.
-
----
-
-## 8. Summary of Visual Adjustments
-
-- **Buttons:**
-
-  - Too large initially → reduced padding + font size.
-  - Made lower from top with `py-5` navbar padding.
-
-- **Menu Dropdown Text:**
-
-  - Reduced to `.fs-6` for a closer match to Materialize list size.
-
-- **Sticky Navbar:**
-
-  - Ensures MENU + BOOK NOW follow on scroll (similar to `navbar-fixed`).
-
-- **Forms:**
-
-  - Floated labels replaced with Bootstrap floating labels.
-  - Textareas and inputs updated to `form-control`.
-
-- **Footer:**
-
-  - Preserved layout but modernized with Bootstrap and FontAwesome v6.
-
-## Sample Screenshots
-
-### Upper Portion
-
-![Upper](https://drive.google.com/uc?id=1fvJCLEbOGOOyUaECf7c76pOcbBTZlGrX)
-
----
-
-### Lower Portion
-
-![Lower](https://drive.google.com/uc?id=1sxxF1YmtoHz8D5KQYmgdA9U4VF9_rlMf)
-
----
-
-### Booking Modal
-
-![Booking Modal](https://drive.google.com/uc?id=1uyCcYKKQ2nrOCL1cIsOyFB7P1VoYm8mj)
-
----
-
-### Header Dropdown Menu
-
-![Dropdown Menu](https://drive.google.com/uc?id=1cyztjXe2h4UqvrP4uXgx359inZi7x9XP)
+- **Iterative Development with Documentation**  
+  Incorporated multiple refinement cycles supported by clear documentation and comments, resulting in cleaner, more maintainable code ready for potential collaboration and future feature additions.
