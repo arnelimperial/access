@@ -4,20 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Skye Suites | Access</title>
+    <title>Access | Skye Suites</title>
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     />
+    <link rel="stylesheet" href="./css/global.css" />
     <link rel="stylesheet" href="./css/access.css" />
-
-    <!-- Google Material Icons -->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
-
-    <!-- FontAwesome -->
     <script
       src="https://kit.fontawesome.com/62d08c9dc3.js"
       crossorigin="anonymous"
@@ -26,143 +23,158 @@
   </head>
   <body>
     <!-- Main Page Header Block -->
-    <header class="header" role="banner">
+    <header class="header access-header">
       <!-- Navbar Block -->
-      <nav class="navbar" role="navigation" aria-label="Main Navigation">
-        <div class="navbar__container">
-          <!-- Dropdown for tablet/mobile -->
-          <div
-            class="dropdown"
-            tabindex="0"
-            aria-haspopup="true"
-            aria-expanded="false"
+      <nav class="navbar navbar-expand-lg custom-glass-navbar">
+        <div class="container navbar__container">
+          <!-- Logo -->
+          <a
+            href="index.html"
+            class="navbar__logo-link"
+            aria-label="Skye Suites Home"
           >
-            <button
-              class="dropdown__button"
-              aria-controls="dropdown-menu"
-              aria-expanded="false"
-            >
-              MENU
-            </button>
+            <img
+              src="./images/logo.png"
+              alt="Skye Suites Logo"
+              class="navbar__logo"
+            />
+          </a>
+
+          <!-- Hamburger toggle for small screens -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNav"
+            aria-controls="offcanvasNav"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Large screen menu (visible on lg and up) -->
+          <div
+            class="collapse navbar-collapse d-none d-lg-flex"
+            id="navbarSupportedContent"
+          >
             <ul
-              class="dropdown__menu"
-              id="dropdown-menu"
-              role="menu"
+              class="navbar-nav ms-auto mb-2 mb-lg-0"
+              role="menubar"
               aria-label="Main Menu"
             >
-              <li class="dropdown__menu-item" role="none">
+              <li class="nav-item" role="none">
                 <a
-                  class="dropdown__menu-link"
-                  role="menuitem"
                   href="index.html"
+                  role="menuitem"
+                  class="nav-link"
+                  aria-current="page"
                 >
-                  <i class="material-icons dropdown__icon" aria-hidden="true"
-                    >home</i
-                  >
-                  Home
+                  <i class="fa-solid fa-house"></i> Home
                 </a>
               </li>
-              <li class="dropdown__menu-item" role="none">
-                <a
-                  class="dropdown__menu-link"
-                  role="menuitem"
-                  href="suites.html"
-                >
-                  <i class="material-icons dropdown__icon" aria-hidden="true"
-                    >hotel</i
-                  >
-                  Suites
+              <li class="nav-item" role="none">
+                <a href="suites.html" role="menuitem" class="nav-link">
+                  <i class="fa-solid fa-bed"></i> Suites
                 </a>
               </li>
-              <li class="dropdown__menu-item" role="none">
-                <a
-                  class="dropdown__menu-link"
-                  role="menuitem"
-                  href="dining.html"
-                >
-                  <i class="material-icons dropdown__icon" aria-hidden="true"
-                    >local_dining</i
-                  >
-                  Dining
+              <li class="nav-item" role="none">
+                <a href="dining.html" role="menuitem" class="nav-link">
+                  <i class="fa-solid fa-utensils"></i> Dining
                 </a>
               </li>
-              <li class="dropdown__menu-item" role="none">
-                <a
-                  class="dropdown__menu-link"
-                  role="menuitem"
-                  href="experience.html"
-                >
-                  <i class="material-icons dropdown__icon" aria-hidden="true"
-                    >spa</i
-                  >
-                  Experience
+              <li class="nav-item" role="none">
+                <a href="experience.html" role="menuitem" class="nav-link">
+                  <i class="fa-solid fa-spa"></i> Experience
                 </a>
               </li>
-              <li class="dropdown__menu-item" role="none">
-                <a
-                  class="dropdown__menu-link"
-                  role="menuitem"
-                  href="access.html"
-                >
-                  <i class="material-icons dropdown__icon" aria-hidden="true"
-                    >info</i
-                  >
+              <li class="nav-item" role="none">
+                <a href="access.html" role="menuitem" class="nav-link">
+                  <i
+                    class="fa-solid fa-universal-access"
+                    aria-hidden="true"
+                  ></i>
                   Access
                 </a>
               </li>
             </ul>
+            <button
+              class="btn btn-danger navbar__book-button ms-lg-3"
+              type="button"
+            >
+              BOOK NOW
+            </button>
           </div>
-
-          <!-- Horizontal menu for large screens -->
-          <ul class="navbar__menu" role="menubar" aria-label="Main Menu">
-            <li role="none">
-              <a href="index.html" role="menuitem" class="navbar__menu-link"
-                >Home</a
-              >
-            </li>
-            <li role="none">
-              <a href="suites.html" role="menuitem" class="navbar__menu-link"
-                >Suites</a
-              >
-            </li>
-            <li role="none">
-              <a href="dining.html" role="menuitem" class="navbar__menu-link"
-                >Dining</a
-              >
-            </li>
-            <li role="none">
-              <a
-                href="experience.html"
-                role="menuitem"
-                class="navbar__menu-link"
-                >Experience</a
-              >
-            </li>
-            <li role="none">
-              <a href="access.html" role="menuitem" class="navbar__menu-link"
-                >Access</a
-              >
-            </li>
-          </ul>
-
-          <!-- Call-to-action book button -->
-          <button
-            class="button button--primary navbar__book-button"
-            type="button"
-          >
-            BOOK NOW
-          </button>
         </div>
       </nav>
 
+      <!-- Offcanvas menu for small screens -->
+      <div
+        class="offcanvas offcanvas-start"
+        tabindex="-1"
+        id="offcanvasNav"
+        aria-labelledby="offcanvasNavLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavLabel">Menu</h5>
+          <button
+            type="button"
+            class="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav" role="menubar" aria-label="Main Menu">
+            <li class="nav-item" role="none">
+              <a
+                href="index.html"
+                role="menuitem"
+                class="nav-link"
+                aria-current="page"
+              >
+                <i class="fa-solid fa-house"></i> Home
+              </a>
+            </li>
+            <li class="nav-item" role="none">
+              <a href="suites.html" role="menuitem" class="nav-link">
+                <i class="fa-solid fa-bed"></i> Suites
+              </a>
+            </li>
+            <li class="nav-item" role="none">
+              <a href="dining.html" role="menuitem" class="nav-link">
+                <i class="fa-solid fa-utensils"></i> Dining
+              </a>
+            </li>
+            <li class="nav-item" role="none">
+              <a href="experience.html" role="menuitem" class="nav-link">
+                <i class="fa-solid fa-spa"></i>Experience
+              </a>
+            </li>
+            <li class="nav-item" role="none">
+              <a href="access.html" role="menuitem" class="nav-link">
+                <i class="fa-solid fa-universal-access" aria-hidden="true"></i>
+                Access
+              </a>
+            </li>
+          </ul>
+          <button
+            class="btn btn-danger w-100 mt-3"
+            type="button"
+            data-bs-dismiss="offcanvas"
+          >
+            Book Now
+          </button>
+        </div>
+      </div>
+
       <!-- Showcase Block -->
-      <div class="showcase" role="banner">
-        <h1 class="showcase__title">ACCESS</h1>
+      <div class="showcase">
+        <h1 class="showcase__title">Seamless Access to Paradise</h1>
       </div>
     </header>
 
     <!-- Main Content Section Block -->
-    <main class="section" role="main">
+    <main class="section">
       <div class="section__container">
         <!-- Left Column Element -->
         <div class="section__column section__column--left">
@@ -187,65 +199,72 @@
           <p class="section__intro"><em>Let's get in touch</em></p>
 
           <!-- Contact Form Block -->
-          <form class="form form--contact" id="contact-form" novalidate>
-            <div class="form__group">
-              <label class="form__label" for="title">Subject</label>
+          <form id="contact-form" class="needs-validation" novalidate>
+            <div class="mb-3">
+              <label for="title" class="form-label">Subject</label>
               <input
-                class="form__input"
                 type="text"
-                name="title"
+                class="form-control"
                 id="title"
+                name="title"
                 required
                 autocomplete="off"
               />
+              <div class="invalid-feedback">Please enter a subject.</div>
             </div>
-            <div class="form__group">
-              <label class="form__label" for="first_name">First Name</label>
-              <input
-                class="form__input"
-                type="text"
-                name="firstName"
-                id="first_name"
-                required
-                autocomplete="given-name"
-              />
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="first_name" class="form-label">First Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="first_name"
+                  name="firstName"
+                  required
+                  autocomplete="given-name"
+                />
+                <div class="invalid-feedback">
+                  Please enter your first name.
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label for="last_name" class="form-label">Last Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="last_name"
+                  name="lastName"
+                  required
+                  autocomplete="family-name"
+                />
+                <div class="invalid-feedback">Please enter your last name.</div>
+              </div>
             </div>
-            <div class="form__group">
-              <label class="form__label" for="last_name">Last Name</label>
+            <div class="mb-3 mt-3">
+              <label for="email" class="form-label">Email</label>
               <input
-                class="form__input"
-                type="text"
-                name="lastName"
-                id="last_name"
-                required
-                autocomplete="family-name"
-              />
-            </div>
-            <div class="form__group">
-              <label class="form__label" for="email">Email</label>
-              <input
-                class="form__input"
                 type="email"
-                name="email"
+                class="form-control"
                 id="email"
+                name="email"
                 required
                 autocomplete="email"
               />
+              <div class="invalid-feedback">Please enter a valid email.</div>
             </div>
-            <div class="form__group">
-              <label class="form__label" for="message">Message</label>
+            <div class="mb-3">
+              <label for="message" class="form-label">Message</label>
               <textarea
-                class="form__textarea"
-                name="message"
+                class="form-control"
                 id="message"
+                name="message"
                 rows="4"
                 required
               ></textarea>
+              <div class="invalid-feedback">Please enter your message.</div>
             </div>
-            <div class="form__footer">
-              <button class="button button--primary form__submit" type="submit">
-                SEND
-              </button>
+            <div class="d-flex justify-content-end">
+              <button type="submit" class="btn btn-danger">SEND</button>
             </div>
           </form>
         </div>
@@ -253,16 +272,20 @@
     </main>
 
     <!-- Footer Block -->
-    <footer class="footer" role="contentinfo">
+    <footer class="footer">
       <div class="footer__container">
         <!-- Footer Contact Column Element -->
-        <section class="footer__column">
-          <h3 class="footer__heading">Contact Us</h3>
+        <section
+          class="footer__column"
+          aria-labelledby="footer-contact-heading"
+        >
+          <h3 id="footer-contact-heading" class="footer__heading">
+            Contact Us
+          </h3>
           <ul class="footer__list">
             <li class="footer__list-item">
-              <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Suite
-              1202, Tower 3, Bonifacio High Street, Bonifacio Global City,
-              Taguig, Metro Manila, Philippines
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              15A Avocado Villa, Atchuete Estate Linapacan Island, Palawan 5313
             </li>
             <li class="footer__list-item">
               <i class="fa-solid fa-phone" aria-hidden="true"></i> +63 917 987
@@ -270,56 +293,83 @@
             </li>
             <li class="footer__list-item">
               <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-              info@skyesuiteshotel.com
+              <a href="mailto:info@skyesuiteshotel.com"
+                >info@skyesuiteshotel.com</a
+              >
             </li>
           </ul>
         </section>
 
         <!-- Footer Social Media Column -->
-        <section class="footer__column">
-          <h3 class="footer__heading">Follow Us</h3>
+        <section class="footer__column" aria-labelledby="footer-social-heading">
+          <h3 id="footer-social-heading" class="footer__heading">Follow Us</h3>
           <nav aria-label="Social media links" class="footer__socials">
-            <a href="#" aria-label="Facebook" class="footer__social-link"
-              ><i class="fa-brands fa-facebook"></i
-            ></a>
-            <a href="#" aria-label="Instagram" class="footer__social-link"
-              ><i class="fa-brands fa-instagram"></i
-            ></a>
-            <a href="#" aria-label="Pinterest" class="footer__social-link"
-              ><i class="fa-brands fa-pinterest"></i
-            ></a>
-            <a href="#" aria-label="YouTube" class="footer__social-link"
-              ><i class="fa-brands fa-youtube"></i
-            ></a>
+            <a href="#" aria-label="Facebook" class="footer__social-link">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="#" aria-label="Instagram" class="footer__social-link">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" aria-label="Pinterest" class="footer__social-link">
+              <i class="fa-brands fa-pinterest"></i>
+            </a>
+            <a href="#" aria-label="YouTube" class="footer__social-link">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
           </nav>
         </section>
 
         <!-- Footer Newsletter Column -->
-        <section class="footer__column">
-          <h3 class="footer__heading">Subscribe to our newsletter</h3>
-          <form class="form form--newsletter" novalidate>
-            <div class="form__group form__group--newsletter">
+        <section
+          class="footer__column"
+          aria-labelledby="footer-newsletter-heading"
+        >
+          <h3 id="footer-newsletter-heading" class="footer__heading">
+            Subscribe to our newsletter
+          </h3>
+          <form class="needs-validation" novalidate>
+            <div class="mb-3">
               <label for="newsletter-email" class="visually-hidden"
                 >Email address</label
               >
               <input
-                class="form__input"
                 type="email"
+                class="form-control"
                 id="newsletter-email"
                 name="newsletter-email"
                 placeholder="Email address"
                 required
               />
+              <div class="invalid-feedback">Please enter a valid email.</div>
             </div>
-            <button
-              class="button button--primary form__subscribe"
-              type="submit"
-            >
+            <button type="submit" class="btn btn-danger w-100">
               Subscribe
             </button>
           </form>
         </section>
       </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Bootstrap 5 validation example
+      (() => {
+        "use strict";
+        const forms = document.querySelectorAll(".needs-validation");
+        Array.from(forms).forEach((form) => {
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add("was-validated");
+            },
+            false
+          );
+        });
+      })();
+    </script>
   </body>
 </html>
