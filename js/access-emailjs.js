@@ -1,4 +1,8 @@
 import { validateEmail } from "./validators.js";
+import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from './configuration.js';
+
+// Initialize EmailJS
+emailjs.init(EMAILJS_PUBLIC_KEY);
 
 (function () {
   // DOM Ready
@@ -96,8 +100,31 @@ import { validateEmail } from "./validators.js";
 
       if (validateContactForm(this)) {
         // Form is valid: proceed with submission logic here (email send, save, etc.)
-        alert("Form is valid and ready to be submitted.");
-        this.reset();
+        const contactData = {
+          title: this.title.value,
+          firstName: this.firstName.value,
+          lastName: this.lastName.value,
+          email: this.email.value,
+          message: this.message.value,
+          submittedAt: new Date().toISOString(),
+        };
+
+        // First, send the email using EmailJS
+        emailjs
+          .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
+          .then(() => {
+            console.log("Email sent");
+          })
+          .then(() => {
+
+            alert("Message sent and saved successfully!");
+
+            this.reset();
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            alert("Something went wrong. Please try again.");
+          });
 
         // Reset validation styling after form reset
         const inputs = this.querySelectorAll(".form-control");
