@@ -111,5 +111,17 @@ import { validateEmail } from "./validators.js";
         });
       }
     });
+    // Reset event and clear validation styles and messages using reset button
+    contactForm.addEventListener("reset", () => {
+      // Remove all existing validation classes and hide invalid feedback
+      const inputs = contactForm.querySelectorAll(".form-control");
+      inputs.forEach((input) => {
+        input.classList.remove("is-valid", "is-invalid");
+        const feedback = input.parentElement.querySelector(".invalid-feedback");
+        if (feedback) {
+          feedback.style.display = "none";
+        }
+      });
+    });
   });
 })();
