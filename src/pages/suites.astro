@@ -1,0 +1,453 @@
+---
+import DefaultLayout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BookingModal from "../components/BookingModal.astro";
+
+const title = "Suites | Skye Suites";
+const description =
+  "Explore the elegant and spacious suites at Skye Suites. Enjoy spectacular views and luxurious amenities designed for comfort and relaxation.";
+const currentPage = "suites";
+const showcaseTitle = "Experience Like Never Before";
+---
+
+<DefaultLayout {title} {description} {currentPage}>
+  <Header slot="header" {currentPage} {showcaseTitle} />
+  <main class="suites-main">
+    <!-- Junior Suite Section -->
+    <section
+      id="suites-top"
+      class="suites-section"
+      aria-labelledby="suites-top-heading"
+    >
+      <div class="container">
+        <!-- BOOTSTRAP: Container -->
+        <div class="suites-intro">
+          <h2 id="suites-top-heading" class="suites-heading">Junior Suite</h2>
+          <p class="suites-subheading">
+            Our junior suite rooms are well equipped and offer spectacular
+            views.
+          </p>
+        </div>
+
+        <div class="suites-card">
+          <div class="suites-card-tabs">
+            <!-- Junior Suite Tabs using buttons and proper ARIA roles -->
+            <ul
+              class="nav nav-pills suites-tabs"
+              role="tablist"
+              aria-label="Junior Suite Room Types"
+            >
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active suites-tab"
+                  id="tab-silene-junior"
+                  data-bs-toggle="pill"
+                  data-bs-target="#tab-content-silene-junior"
+                  type="button"
+                  role="tab"
+                  aria-controls="tab-content-silene-junior"
+                  aria-selected="true"
+                  tabindex="0"
+                >
+                  SILENE JUNIOR SUITE
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link suites-tab"
+                  id="tab-lupine-junior"
+                  data-bs-toggle="pill"
+                  data-bs-target="#tab-content-lupine-junior"
+                  type="button"
+                  role="tab"
+                  aria-controls="tab-content-lupine-junior"
+                  aria-selected="false"
+                  tabindex="-1"
+                >
+                  LUPINE JUNIOR SUITE
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tab-content">
+            <div
+              class="tab-pane fade show active suites-room-info"
+              role="tabpanel"
+              id="tab-content-silene-junior"
+              aria-labelledby="tab-silene-junior"
+              tabindex="0"
+            >
+              <div class="row">
+                <div class="col-md-7 col-sm-12 left">
+                  <img
+                    class="img-fluid suites-room-img"
+                    src="https://images.pexels.com/photos/16436963/pexels-photo-16436963.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                    alt="A two-person bed inside the Junior Suite room with elegant décor"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="col-md-5 col-sm-12 right">
+                  <div class="suites-room-features">
+                    <ul class="suites-features-list">
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-ruler-combined suites-features-icon"
+                          ></i>215 sq.ft. / 20 sq.m</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-user-group suites-features-icon"
+                          ></i>For 2 people</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i class="fa-solid fa-bath suites-features-icon"
+                          ></i>Shower or bathtub</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i class="fa-solid fa-wifi suites-features-icon"
+                          ></i>Wifi &amp; TV</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-mug-saucer suites-features-icon"
+                          ></i>Kettle or coffee machine</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i class="fa-solid fa-mountain suites-features-icon"
+                          ></i>Mountain view</span
+                        >
+                      </li>
+                    </ul>
+                    <button
+                      class="suites-book-btn btn btn-danger"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#bookNowModal"
+                      data-suite="silene-junior-suite"
+                      aria-label="Book Silene Junior Suite"
+                    >
+                      BOOK NOW
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane fade suites-room-info"
+              role="tabpanel"
+              id="tab-content-lupine-junior"
+              aria-labelledby="tab-lupine-junior"
+              tabindex="0"
+            >
+              <div class="row">
+                <div class="col-md-7 col-sm-12 left">
+                  <img
+                    class="img-fluid suites-room-img"
+                    src="https://images.pexels.com/photos/31817153/pexels-photo-31817153.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                    alt="Lupine Junior Suite room with modern furniture and large windows"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="col-md-5 col-sm-12 right">
+                  <div class="suites-room-features">
+                    <ul class="suites-features-list">
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-ruler-combined suites-features-icon"
+                          ></i>230 sq.ft. / 21 sq.m</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-user-group suites-features-icon"
+                          ></i>For 2 people</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i class="fa-solid fa-bath suites-features-icon"
+                          ></i>Bathtub</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i class="fa-solid fa-wifi suites-features-icon"
+                          ></i>Wifi &amp; TV</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-mug-saucer suites-features-icon"
+                          ></i>Coffee machine</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-umbrella-beach suites-features-icon"
+                          ></i>Ocean view</span
+                        >
+                      </li>
+                    </ul>
+                    <button
+                      class="suites-book-btn btn btn-danger"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#bookNowModal"
+                      data-suite="lupine-junior-suite"
+                      aria-label="Book Lupine Junior Suite"
+                    >
+                      BOOK NOW
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Suite Section -->
+    <section class="suites-section" aria-labelledby="suites-main-heading">
+      <div class="container">
+        <!-- BOOTSTRAP: Container -->
+        <div class="suites-intro">
+          <h2 id="suites-main-heading" class="suites-heading">Suite</h2>
+          <p class="suites-subheading">
+            Our suite rooms are spacious with spectacular views and luxurious
+            amenities.
+          </p>
+        </div>
+        <div class="suites-card">
+          <div class="suites-card-tabs">
+            <ul
+              class="nav nav-pills suites-tabs"
+              role="tablist"
+              aria-label="Suite Room Types"
+            >
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active suites-tab"
+                  id="tab-silene-suite"
+                  data-bs-toggle="pill"
+                  data-bs-target="#tab-content-silene-suite"
+                  type="button"
+                  role="tab"
+                  aria-controls="tab-content-silene-suite"
+                  aria-selected="true"
+                  tabindex="0"
+                >
+                  SILENE SUITE
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link suites-tab"
+                  id="tab-lupine-suite"
+                  data-bs-toggle="pill"
+                  data-bs-target="#tab-content-lupine-suite"
+                  type="button"
+                  role="tab"
+                  aria-controls="tab-content-lupine-suite"
+                  aria-selected="false"
+                  tabindex="-1"
+                >
+                  LUPINE SUITE
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tab-content">
+            <div
+              class="tab-pane fade show active suites-room-info"
+              role="tabpanel"
+              id="tab-content-silene-suite"
+              aria-labelledby="tab-silene-suite"
+              tabindex="0"
+            >
+              <div class="row">
+                <div class="col-md-7 col-sm-12 left">
+                  <img
+                    class="img-fluid suites-room-img"
+                    src="https://images.pexels.com/photos/28054852/pexels-photo-28054852.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                    alt="A two-person bed inside the Suite Room with elegant bedding and mountain view"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="col-md-5 col-sm-12 right">
+                  <div class="suites-room-features">
+                    <ul class="suites-features-list">
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-ruler-combined suites-features-icon"
+                          ></i>430 sq.ft. / 40 sq.m</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-user-group suites-features-icon"
+                          ></i>For 2 people</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i class="fa-solid fa-bath suites-features-icon"
+                          ></i>Shower or bathtub</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i class="fa-solid fa-wifi suites-features-icon"
+                          ></i>Wifi &amp; TV</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-mug-saucer suites-features-icon"
+                          ></i>Kettle or coffee machine</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-bell-concierge suites-features-icon"
+                          ></i>Room Service</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i class="fa-solid fa-mountain suites-features-icon"
+                          ></i>Mountain view</span
+                        >
+                      </li>
+                    </ul>
+                    <button
+                      class="suites-book-btn btn btn-danger"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#bookNowModal"
+                      data-suite="silene-suite"
+                      aria-label="Book Silene Suite"
+                    >
+                      BOOK NOW
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="tab-pane fade suites-room-info"
+              role="tabpanel"
+              id="tab-content-lupine-suite"
+              aria-labelledby="tab-lupine-suite"
+              tabindex="0"
+            >
+              <div class="row">
+                <div class="col-md-7 col-sm-12 left">
+                  <img
+                    class="img-fluid suites-room-img"
+                    src="https://images.pexels.com/photos/31817155/pexels-photo-31817155.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+                    alt="Lupine Suite room with luxurious furnishings and scenic view."
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="col-md-5 col-sm-12 right">
+                  <div class="suites-room-features">
+                    <ul class="suites-features-list">
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-ruler-combined suites-features-icon"
+                          ></i>450 sq.ft. / 42 sq.m</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-user-group suites-features-icon"
+                          ></i>For 2 people</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i class="fa-solid fa-bath suites-features-icon"
+                          ></i>Bathtub</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i class="fa-solid fa-wifi suites-features-icon"
+                          ></i>Wifi &amp; TV</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-mug-saucer suites-features-icon"
+                          ></i>Coffee machine</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-bell-concierge suites-features-icon"
+                          ></i>Room Service</span
+                        >
+                      </li>
+                      <li class="suites-features-item">
+                        <span
+                          ><i
+                            class="fa-solid fa-umbrella-beach suites-features-icon"
+                          ></i>Ocean view</span
+                        >
+                      </li>
+                    </ul>
+                    <button
+                      class="suites-book-btn btn btn-danger"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#bookNowModal"
+                      data-suite="lupine-suite"
+                      aria-label="Book Lupine Suite"
+                    >
+                      BOOK NOW
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <BookingModal slot="modal" />
+  <Footer slot="footer" />
+</DefaultLayout>

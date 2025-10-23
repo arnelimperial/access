@@ -1,0 +1,214 @@
+---
+import DefaultLayout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BookingModal from "../components/BookingModal.astro";
+
+const title = "Experience | Skye Suites";
+const description =
+  "Relax, rejuvenate, and explore exclusive spa treatments and curated adventures at Skye Suites. Your unforgettable experience awaits.";
+const currentPage = "experience";
+const showcaseTitle = "Serenity Meets Adventure";
+---
+
+<DefaultLayout {title} {description} {currentPage}>
+  <Header slot="header" {currentPage} {showcaseTitle} />
+  <main class="experience-main">
+    <!-- Wellness Section -->
+    <section class="wellness" aria-labelledby="wellness-heading">
+      <div class="wellness__hero">
+        <img
+          src="https://images.pexels.com/photos/1265990/pexels-photo-1265990.jpeg"
+          alt="Luxury pool at Skye Suites"
+          class="wellness__hero-image"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="wellness__content">
+        <div class="container-xl">
+          <header class="wellness__header">
+            <h2 id="wellness-heading" class="wellness__title">Wellness</h2>
+            <p class="wellness__subtitle">
+              <em
+                >A place where you can immerse yourself in pure relaxation and
+                beauty</em
+              >
+            </p>
+          </header>
+
+          <div class="row g-4">
+            <article class="col-12 col-md-6 col-lg-4">
+              <div class="experience-card h-100">
+                <div class="experience-card__image-wrapper">
+                  <img
+                    src="https://images.pexels.com/photos/7598360/pexels-photo-7598360.jpeg"
+                    alt="Massage therapy at Skye Suites spa"
+                    class="experience-card__image"
+                    loading="lazy"
+                  />
+                  <div class="experience-card__overlay">
+                    <h3 class="experience-card__title">MASSAGE THERAPY</h3>
+                  </div>
+                </div>
+                <div class="experience-card__content">
+                  <p class="experience-card__description">
+                    Indulge in our therapeutic massage treatments designed to
+                    rejuvenate your body and mind. Our skilled therapists use
+                    premium oils and techniques to provide the ultimate
+                    relaxation experience.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="col-12 col-md-6 col-lg-4">
+              <div class="experience-card h-100">
+                <div class="experience-card__image-wrapper">
+                  <img
+                    src="https://images.pexels.com/photos/6724464/pexels-photo-6724464.jpeg"
+                    alt="Skincare treatment at Skye Suites spa"
+                    class="experience-card__image"
+                    loading="lazy"
+                  />
+                  <div class="experience-card__overlay">
+                    <h3 class="experience-card__title">SKINCARE TREATMENT</h3>
+                  </div>
+                </div>
+                <div class="experience-card__content">
+                  <p class="experience-card__description">
+                    Revitalize your skin with our professional skincare
+                    treatments using premium products and advanced techniques
+                    for a radiant, healthy complexion.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="col-12 col-md-6 col-lg-4">
+              <div class="experience-card h-100">
+                <div class="experience-card__image-wrapper">
+                  <img
+                    src="https://images.pexels.com/photos/13286770/pexels-photo-13286770.jpeg"
+                    alt="Thermal bath at Skye Suites spa"
+                    class="experience-card__image"
+                    loading="lazy"
+                  />
+                  <div class="experience-card__overlay">
+                    <h3 class="experience-card__title">THERMAL BATH</h3>
+                  </div>
+                </div>
+                <div class="experience-card__content">
+                  <p class="experience-card__description">
+                    Soak in our therapeutic thermal baths with mineral-rich
+                    waters that promote healing, relaxation, and overall
+                    wellness.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Adventure Section -->
+    <section class="adventure" aria-labelledby="adventure-heading">
+      <div class="adventure__hero">
+        <img
+          src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg"
+          alt="Adventure activities at Skye Suites"
+          class="adventure__hero-image"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="adventure__content">
+        <div class="container-xl">
+          <header class="adventure__header">
+            <h2 id="adventure-heading" class="adventure__title">Adventure</h2>
+            <p class="adventure__subtitle">
+              <em
+                >If thinking about it makes you excited, imagine actually doing
+                it!</em
+              >
+            </p>
+          </header>
+
+          <div class="row g-4">
+            <article class="col-12 col-md-6 col-lg-4">
+              <div class="experience-card h-100">
+                <div class="experience-card__image-wrapper">
+                  <img
+                    src="https://images.pexels.com/photos/4390720/pexels-photo-4390720.jpeg"
+                    alt="Hiking trails near Skye Suites"
+                    class="experience-card__image"
+                    loading="lazy"
+                  />
+                  <div class="experience-card__overlay">
+                    <h3 class="experience-card__title">Nature Trekking</h3>
+                  </div>
+                </div>
+                <div class="experience-card__content">
+                  <p class="experience-card__description">
+                    Explore breathtaking trails and scenic landscapes on our
+                    guided hiking adventures. Perfect for all skill levels with
+                    stunning mountain views.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="col-12 col-md-6 col-lg-4">
+              <div class="experience-card h-100">
+                <div class="experience-card__image-wrapper">
+                  <img
+                    src="https://images.pexels.com/photos/5232220/pexels-photo-5232220.jpeg"
+                    alt="Kayaking adventures at Skye Suites"
+                    class="experience-card__image"
+                    loading="lazy"
+                  />
+                  <div class="experience-card__overlay">
+                    <h3 class="experience-card__title">Surfing</h3>
+                  </div>
+                </div>
+                <div class="experience-card__content">
+                  <p class="experience-card__description">
+                    Navigate pristine waters and discover hidden coves on our
+                    kayaking excursions. Equipment and professional guides
+                    provided for a safe adventure.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="col-12 col-md-6 col-lg-4">
+              <div class="experience-card h-100">
+                <div class="experience-card__image-wrapper">
+                  <img
+                    src="https://images.pexels.com/photos/3319961/pexels-photo-3319961.jpeg"
+                    alt="Biking trails near Skye Suites"
+                    class="experience-card__image"
+                    loading="lazy"
+                  />
+                  <div class="experience-card__overlay">
+                    <h3 class="experience-card__title">Tailored Experiences</h3>
+                  </div>
+                </div>
+                <div class="experience-card__content">
+                  <p class="experience-card__description">
+                    At Sky Suites, luxury is not one-size-fits-all. We offer a
+                    curated collection of exclusive, customizable adventures
+                    designed to match your pace, passions, and preferences.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <BookingModal slot="modal" />
+  <Footer slot="footer" />
+</DefaultLayout>

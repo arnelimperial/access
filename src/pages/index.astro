@@ -1,0 +1,114 @@
+---
+import DefaultLayout from "../layouts/Layout.astro";
+import Header from "../components/HeaderIndex.astro";
+import Footer from "../components/Footer.astro";
+import BookingModal from "../components/BookingModal.astro";
+
+const title = "Skye Suites";
+const description =
+  "Skye Suites - Your sanctuary of calm adventure. Discover luxurious suites, exquisite dining, and unforgettable experiences in paradise.";
+const currentPage = "index";
+const showcaseTitle = "Your Sanctuary of Calm Adventure";
+---
+
+<DefaultLayout {title} {description} {currentPage}>
+  <Header slot="header" {currentPage} {showcaseTitle} />
+
+  <main class="index-main" id="main-content">
+    <section class="index-services" aria-label="Main services offered">
+      <div class="container index-services__container">
+        <!-- Bootstrap: Container -->
+        <div class="row g-4">
+          <!-- Bootstrap: Row-->
+
+          <div class="col-lg-6">
+            <!-- Bootstrap: Column-->
+            <article class="index-service-card">
+              <img
+                src="https://images.pexels.com/photos/31817162/pexels-photo-31817162.jpeg"
+                alt="Luxurious suites"
+                class="img-fluid index-service-card__image"
+                loading="lazy"
+              />
+              <div class="index-service-card__content">
+                <h2 class="index-service-card__title">
+                  <a href="/suites">Exquisite Suites</a>
+                </h2>
+                <p class="index-service-card__text">
+                  Experience elegant comfort with our beautifully designed
+                  suites, combining luxury with breathtaking views.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-6">
+            <!-- Bootstrap: Column-->
+            <article class="index-service-card">
+              <img
+                src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg"
+                alt="Dining experience"
+                class="index-service-card__image"
+                loading="lazy"
+              />
+              <div class="index-service-card__content">
+                <h2 class="index-service-card__title">
+                  <a href="/dining">Culinary Delights</a>
+                </h2>
+                <p class="index-service-card__text">
+                  Savor gourmet dishes crafted by our world-class chefs at our
+                  award-winning restaurants.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-6">
+            <!-- Bootstrap: Column-->
+            <article class="index-service-card">
+              <img
+                src="https://images.pexels.com/photos/6908362/pexels-photo-6908362.jpeg"
+                alt="Spa and wellness experience"
+                class="index-service-card__image"
+                loading="lazy"
+              />
+              <div class="index-service-card__content">
+                <h2 class="index-service-card__title">
+                  <a href="/experience">Unforgettable Experiences</a>
+                </h2>
+                <p class="index-service-card__text">
+                  Relax and rejuvenate with exclusive spa treatments,
+                  adventures, and curated experiences.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-lg-6">
+            <!-- Bootstrap: Column-->
+            <article class="index-service-card">
+              <img
+                src="https://images.pexels.com/photos/16253098/pexels-photo-16253098.jpeg"
+                alt="Hotel access location"
+                class="index-service-card__image"
+                loading="lazy"
+              />
+              <div class="index-service-card__content">
+                <h2 class="index-service-card__title">
+                  <a href="/access">Seamless Access</a>
+                </h2>
+                <p class="index-service-card__text">
+                  Conveniently located with detailed directions and transport
+                  options, making your journey effortless.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <BookingModal slot="modal" />
+  <Footer slot="footer" />
+</DefaultLayout>

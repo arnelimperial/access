@@ -1,0 +1,235 @@
+/*=============== Suites Page ===============*/
+.suites-header {
+  background-image: url("https://images.pexels.com/photos/30037427/pexels-photo-30037427.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  text-align: center;
+  letter-spacing: 0.12em;
+  text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+}
+
+/* Suites page specific styles - BEM using suites-prefix */
+
+/* Layout & Spacing */
+.suites-main {
+  padding: 3rem 0rem 1.5rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.suites-section {
+  /* margin-bottom: 5rem; */
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.suites-intro {
+  margin-bottom: 2rem;
+}
+
+.suites-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-dark);
+}
+
+.suites-subheading {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* Main Container */
+.container {
+  width: 90%;
+}
+
+/* Tabs */
+.suites-tabs {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 0rem;
+  border-bottom: 3px solid var(--color-primary);
+  list-style: none;
+  margin: 0;
+  padding-top: 0.5rem;
+  user-select: none;
+  flex-wrap: nowrap;
+}
+
+.suites-tab {
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: var(--color-text-dark);
+  border-bottom: 3px solid transparent;
+  transition: color var(--transition), border-color var(--transition);
+}
+
+.suites-tab-item {
+  flex: 1;
+  min-width: 100px;
+}
+
+.suites-tab[aria-selected="true"],
+.suites-tab:hover,
+.suites-tab:focus-visible {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+/* Bootstrap Overrides for Nav Pills */
+.nav-pills .nav-link {
+  background-color: #fff;
+  color: var(--color-text-dark);
+  border-radius: 0rem;
+  padding: 0.5rem;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.nav-pills .nav-link.active {
+  background-color: var(--color-text-dark);
+  color: #fff;
+}
+
+/* Room info */
+.suites-room-info {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1.5rem 0;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.suites-room-info--hidden {
+  display: none;
+}
+
+.suites-room-img {
+  display: block;
+  width: 30rem;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* Features list */
+.suites-room-features {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  width: auto;
+  margin-top: 1.4rem;
+  padding-left: 30px;
+}
+
+.suites-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.2rem 0;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.suites-features-item {
+  margin-bottom: 0.4rem;
+  position: relative;
+  /* padding-left: 1.3rem; */
+  text-align: left;
+  font-weight: 300;
+}
+
+.suites-features-icon {
+  color: var(--color-text-dark);
+  margin-right: 0.6rem;
+}
+
+/* Book Button */
+.suites-book-btn {
+  background-color: var(--color-primary);
+  color: var(--color-bg-light);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.75rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 2px 3px 8px var(--color-primary-dark);
+  transition: background-color var(--transition), box-shadow var(--transition);
+  width: fit-content;
+}
+
+.suites-book-btn:hover,
+.suites-book-btn:focus-visible {
+  background-color: var(--color-primary-dark);
+  box-shadow: 0 0 10px var(--color-primary);
+  outline: 2px solid var(--color-primary-dark);
+  outline-offset: 2px;
+  outline-offset: 2px;
+  outline-style: solid;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .suites-room-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .suites-room-img,
+  .suites-room-features {
+    width: 100%;
+  }
+
+  .suites-features-list {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 400px) {
+  main {
+    padding: 2rem 1rem;
+  }
+
+  .suites-heading {
+    font-size: 1.8rem;
+  }
+
+  .suites-subheading {
+    font-size: 1rem;
+  }
+
+  .suites-tabs {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .suites-tab {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-link {
+    font-size: 2.6vw;
+  }
+}

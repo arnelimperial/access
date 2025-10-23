@@ -1,0 +1,236 @@
+<div
+  class="modal fade"
+  id="bookNowModal"
+  tabindex="-1"
+  aria-labelledby="bookNowModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="bookNowModalLabel">
+          Hotel Booking
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <form id="bookingForm" class="needs-validation" novalidate>
+        <div class="modal-body">
+          <p class="h5 fw-semibold mb-3">Contact Information</p>
+          <p class="form-text text-muted">
+            Fields marked with <span class="text-danger">*</span> are required.
+          </p>
+
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label for="firstName" class="form-label fw-bold"
+                >First Name</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                name="firstName"
+                required
+                autocomplete="given-name"
+                aria-describedby="firstNameFeedback"
+              />
+              <div id="firstNameFeedback" class="invalid-feedback">
+                Please enter your first name.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="lastName" class="form-label fw-bold">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                name="lastName"
+                required
+                autocomplete="family-name"
+                aria-describedby="lastNameFeedback"
+              />
+              <div id="lastNameFeedback" class="invalid-feedback">
+                Please enter your last name.
+              </div>
+            </div>
+          </div>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label for="phone" class="form-label fw-bold">Phone</label>
+              <input
+                type="tel"
+                class="form-control"
+                id="phone"
+                name="phone"
+                pattern="^\+?[0-9\s\-]{7,15}$"
+                required
+                autocomplete="tel"
+                placeholder="+63 917 123 4567 or 0212345678"
+                aria-describedby="phoneFeedback"
+              />
+              <div id="phoneFeedback" class="invalid-feedback">
+                Please enter a valid phone number.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="email" class="form-label fw-bold">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                required
+                autocomplete="email"
+                placeholder="email@example.com"
+                aria-describedby="emailFeedback"
+              />
+              <div id="emailFeedback" class="invalid-feedback">
+                Please enter a valid email.
+              </div>
+            </div>
+          </div>
+          <p class="h5 fw-semibold mb-3">Booking Details</p>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label for="checkin" class="form-label fw-bold">Check-in</label>
+              <input
+                type="datetime-local"
+                class="form-control"
+                id="checkin"
+                name="checkin"
+                required
+                aria-describedby="checkinFeedback"
+              />
+              <div id="checkinFeedback" class="invalid-feedback">
+                Please select your check-in date and time.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="checkout" class="form-label fw-bold">Check-out</label>
+              <input
+                type="datetime-local"
+                class="form-control"
+                id="checkout"
+                name="checkout"
+                required
+                aria-describedby="checkoutFeedback"
+              />
+              <div id="checkoutFeedback" class="invalid-feedback">
+                Please select your check-out date and time.
+              </div>
+            </div>
+          </div>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label for="adults" class="form-label fw-bold">Adults</label>
+              <select
+                class="form-select"
+                id="adults"
+                name="adults"
+                required
+                aria-describedby="adultsHelp adultsFeedback"
+              >
+                <option value="" selected disabled>
+                  Choose number of adults
+                </option>
+                <option value="1">1 Adult</option>
+                <option value="2">2 Adults</option>
+                <option value="3">3 Adults</option>
+                <option value="4">4 Adults</option>
+              </select>
+              <div id="adultsHelp" class="form-text">
+                Select the number of adults staying.
+              </div>
+              <div id="adultsFeedback" class="invalid-feedback">
+                Please select number of adults.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="children" class="form-label fw-bold">Children</label>
+              <select
+                class="form-select"
+                id="children"
+                name="children"
+                required
+                aria-describedby="childrenHelp childrenFeedback"
+              >
+                <option value="" selected disabled>
+                  Choose number of children
+                </option>
+                <option value="0">0 Children</option>
+                <option value="1">1 Child</option>
+                <option value="2">2 Children</option>
+                <option value="3">3 Children</option>
+              </select>
+              <div id="childrenHelp" class="form-text">
+                Select the number of children staying.
+              </div>
+              <div id="childrenFeedback" class="invalid-feedback">
+                Please select number of children.
+              </div>
+            </div>
+          </div>
+          <div class="row g-3 mb-4">
+            <div class="col-md-6">
+              <label for="suite" class="form-label fw-bold">Suite</label>
+              <select
+                class="form-select"
+                id="suite"
+                name="suite"
+                required
+                aria-describedby="suiteFeedback"
+              >
+                <option value="" selected disabled>Select Suite</option>
+                <option value="silene-junior-suite">
+                  Silene Junior Suite
+                </option>
+                <option value="lupine-junior-suite">
+                  Lupine Junior Suite
+                </option>
+                <option value="silene-suite">Silene Suite</option>
+                <option value="lupine-suite">Lupine Suite</option>
+              </select>
+
+              <div id="suiteFeedback" class="invalid-feedback">
+                Please select a suite.
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="board" class="form-label fw-bold">Board</label>
+              <select
+                class="form-select"
+                id="board"
+                name="board"
+                required
+                aria-describedby="boardFeedback"
+              >
+                <option value="" selected disabled> Select Board Type </option>
+                <option value="breakfast">Breakfast</option>
+                <option value="half-board">Half Board</option>
+              </select>
+              <div id="boardFeedback" class="invalid-feedback">
+                Please select a board type.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="reset"
+            class="btn btn-secondary me-2"
+            id="resetBookingFormBtn"
+          >
+            Reset
+          </button>
+          <button type="submit" class="btn btn-danger fw-bold w-100">
+            Submit Booking
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

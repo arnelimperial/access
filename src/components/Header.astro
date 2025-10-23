@@ -1,0 +1,128 @@
+---
+import { Image } from "astro:assets";
+import logoSrc from "../assets/logo.png";
+
+const { currentPage, showcaseTitle } = Astro.props;
+const navItems = [
+  { href: "/", label: "Home", icon: "fa-house", id: "index" },
+  { href: "/suites", label: "Suites", icon: "fa-bed", id: "suites" },
+  { href: "/dining", label: "Dining", icon: "fa-utensils", id: "dining" },
+  {
+    href: "/experience",
+    label: "Experience",
+    icon: "fa-spa",
+    id: "experience",
+  },
+  {
+    href: "/access",
+    label: "Access",
+    icon: "fa-universal-access",
+    id: "access",
+  },
+];
+---
+
+<header class={currentPage ? `header ${currentPage}-header` : "header"}>
+  <nav class="navbar navbar-expand-lg custom-glass-navbar">
+    <div class="container navbar__container">
+      <a href="/" class="navbar__logo-link" aria-label="Skye Suites Home">
+        <Image
+          src={logoSrc}
+          alt="Skye Suites Logo"
+          class="navbar__logo"
+          loading="lazy"
+        />
+      </a>
+      <!-- Hamburger toggle for small screens -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNav"
+        aria-controls="offcanvasNav"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Large screen menu (visible on lg and up) -->
+      <div
+        class="collapse navbar-collapse d-none d-lg-flex"
+        id="navbarSupportedContent"
+      >
+        <ul
+          class="navbar-nav ms-auto mb-2 mb-lg-0"
+          role="menubar"
+          aria-label="Main Menu"
+        >
+          {
+            navItems.map(({ href, label, icon, id }) => (
+              <li class="nav-item">
+                <a
+                  href={href}
+                  class={`nav-link${currentPage === id ? " active" : ""}`}
+                  aria-current={currentPage === id ? "page" : undefined}
+                >
+                  <i class={`fa-solid ${icon}`} aria-hidden="true" /> {label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+
+        <button
+          class="btn btn-danger navbar__book-button ms-lg-3"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#bookNowModal"
+        >
+          BOOK NOW
+        </button>
+      </div>
+    </div>
+  </nav>
+  <!-- Offcanvas menu for small screens -->
+  <div
+    class="offcanvas offcanvas-start"
+    tabindex="-1"
+    id="offcanvasNav"
+    aria-labelledby="offcanvasNavLabel"
+  >
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasNavLabel">Menu</h5>
+      <button
+        type="button"
+        class="btn-close text-reset"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body custom-vertical-center">
+      <ul class="navbar-nav" role="menubar" aria-label="Main Menu">
+        {
+          navItems.map(({ href, label, icon, id }) => (
+            <li class="nav-item">
+              <a
+                href={href}
+                class={`nav-link${currentPage === id ? " active" : ""}`}
+                aria-current={currentPage === id ? "page" : undefined}
+              >
+                <i class={`fa-solid ${icon}`} aria-hidden="true" /> {label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <button
+        class="btn btn-danger w-100 mt-3"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#bookNowModal"
+      >
+        Book Now
+      </button>
+    </div>
+  </div>
+  <!-- Showcase Block -->
+  <div class="showcase">
+    <h1 class="showcase__title">{showcaseTitle}</h1>
+  </div>
+</header>

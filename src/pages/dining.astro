@@ -1,0 +1,180 @@
+---
+import DefaultLayout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import BookingModal from "../components/BookingModal.astro";
+
+const title = "Dining | Skye Suites";
+const description =
+  "Savor gourmet dishes at Skye Suites' dining venues. Experience world-class culinary delights crafted by expert chefs in a stunning setting.";
+const currentPage = "dining";
+const showcaseTitle = "Excellence with Every Bite";
+---
+
+<DefaultLayout {title} {description} {currentPage}>
+  <Header slot="header" {currentPage} {showcaseTitle} />
+
+  <main class="dining-main container-fluid p-0">
+    <!-- Breakfast -->
+    <section class="content-title" aria-label="Breakfast dining section">
+      <div class="container py-5">
+        <div class="row align-items-center">
+          <!-- Text -->
+          <div class="col-md-6 mb-4 mb-md-0 text-center">
+            <h3 class="fw-bold section-title">Breakfast</h3>
+            <h5 class="section-description">
+              Rise and Shine! <br />
+              Good food to start the day.
+            </h5>
+            <p class="section-paragraph">Daily from 07:00 to 10:00</p>
+          </div>
+
+          <!-- Carousel -->
+          <div class="col-md-6">
+            <div
+              id="breakfastCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner rounded-4 shadow">
+                <div class="carousel-item active">
+                  <img
+                    src="https://images.pexels.com/photos/3298637/pexels-photo-3298637.jpeg"
+                    class="d-block w-100 img-fluid"
+                    alt="Food"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/5718127/pexels-photo-5718127.jpeg"
+                    class="d-block w-100 img-fluid"
+                    alt="Bread"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/6466291/pexels-photo-6466291.jpeg"
+                    class="d-block w-100 img-fluid"
+                    alt="Suite Service"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Restaurant -->
+    <section class="content-title" aria-label="Restaurant dining section">
+      <div class="container py-5">
+        <div class="row align-items-center flex-md-row-reverse">
+          <!-- Text -->
+          <div class="col-md-6 mb-4 mb-md-0 text-center">
+            <h3 class="fw-bold section-title">Restaurant</h3>
+            <h5 class="section-description">
+              It's a fine time to dine! <br />
+              A genuine fine-dining experience awaits.
+            </h5>
+            <p class="section-paragraph-white">Daily from 10:00 to 22:00</p>
+          </div>
+
+          <!-- Carousel -->
+          <div class="col-md-6">
+            <div
+              id="restaurantCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner rounded-4 shadow">
+                <div class="carousel-item active">
+                  <img
+                    src="https://images.pexels.com/photos/34308310/pexels-photo-34308310.jpeg"
+                    class="d-block w-100 img-fluid"
+                    alt="Steak"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/3297803/pexels-photo-3297803.jpeg"
+                    class="d-block w-100 img-fluid"
+                    alt="Pasta"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/15998889/pexels-photo-15998889.jpeg"
+                    class="d-block w-100 img-fluid"
+                    alt="Dessert"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lounge & Bar -->
+    <section class="content-title" aria-label="Lounge and Bar dining section">
+      <div class="container py-5">
+        <div class="row align-items-center">
+          <!-- Text -->
+          <div class="col-md-6 mb-4 mb-md-0 text-center">
+            <h3 class="fw-bold section-title">Lounge & Bar</h3>
+            <h5 class="section-description">
+              The best hour is happy hour. <br />
+              Come and have a drink!
+            </h5>
+            <p class="section-paragraph">Daily from 18:00 to 23:00</p>
+          </div>
+
+          <!-- Carousel -->
+          <div class="col-md-6">
+            <div
+              id="barCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner rounded-4 shadow">
+                <div class="carousel-item active">
+                  <img
+                    src="https://images.pexels.com/photos/2507010/pexels-photo-2507010.jpeg"
+                    class="d-block w-100 img-fluid"
+                    alt="Bar"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/34322168/pexels-photo-34322168.jpeg"
+                    class="d-block w-100 img-fluid"
+                    alt="Cocktails"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://images.pexels.com/photos/19790823/pexels-photo-19790823.jpeg"
+                    class="d-block w-100 img-fluid"
+                    alt="Cheese"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <BookingModal slot="modal" />
+  <Footer slot="footer" />
+</DefaultLayout>
