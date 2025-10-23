@@ -1,23 +1,8 @@
-import { saveContactMessage, auth } from './firebase.js';
-import { validateEmail } from './validators.js'; 
-import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from './configuration.js';
+import { validateEmail } from "./validators.js";
+import { showToast } from "./toastHelper.js";
 
-// Initialize EmailJS
-emailjs.init(EMAILJS_PUBLIC_KEY);
-
-(function() {
-  let firebaseAuthReady = false;
-
-  auth.onAuthStateChanged(user => {
-    if (user) {
-      firebaseAuthReady = true;
-      console.log("Firebase anonymous auth ready with uid:", user.uid);
-    } else {
-      firebaseAuthReady = false;
-      console.log("Firebase user not authenticated.");
-    }
-  });
-
+(function () {
+  // DOM Ready
   document.addEventListener("DOMContentLoaded", () => {
     const contactForm = document.getElementById("contact-form");
 
@@ -26,14 +11,39 @@ emailjs.init(EMAILJS_PUBLIC_KEY);
       return;
     }
 
+    // Validation function for Contact Form
     function validateContactForm(form) {
       let isValid = true;
-      form.querySelectorAll('.invalid-feedback').forEach(el => el.remove());
-      form.querySelectorAll('.form-control').forEach(input => {
-        input.classList.remove('is-invalid', 'is-valid');
+
+      // Get all inputs with form-control class
+      const inputs = form.querySelectorAll(".form-control");
+
+      // Clear previous validation styles
+      inputs.forEach((input) => {
+        input.classList.remove("is-invalid", "is-valid");
       });
 
-      let title = form.title.value.trim();
+      // Helper to show error on input using existing invalid-feedback div
+      function showError(input, message) {
+        input.classList.add("is-invalid");
+        const feedback = input.parentElement.querySelector(".invalid-feedback");
+        if (feedback) {
+          feedback.textContent = message;
+          feedback.style.display = "block";
+        }
+      }
+
+      // Helper to show valid on input and hide invalid feedback
+      function showValid(input) {
+        input.classList.add("is-valid");
+        const feedback = input.parentElement.querySelector(".invalid-feedback");
+        if (feedback) {
+          feedback.style.display = "none";
+        }
+      }
+
+      // Validate Subject
+      const title = form.title.value.trim();
       if (!title) {
         showError(form.title, "Subject is required.");
         isValid = false;
@@ -41,7 +51,8 @@ emailjs.init(EMAILJS_PUBLIC_KEY);
         showValid(form.title);
       }
 
-      let firstName = form.firstName.value.trim();
+      // Validate First Name
+      const firstName = form.firstName.value.trim();
       if (!firstName) {
         showError(form.firstName, "First name is required.");
         isValid = false;
@@ -49,7 +60,8 @@ emailjs.init(EMAILJS_PUBLIC_KEY);
         showValid(form.firstName);
       }
 
-      let lastName = form.lastName.value.trim();
+      // Validate Last Name
+      const lastName = form.lastName.value.trim();
       if (!lastName) {
         showError(form.lastName, "Last name is required.");
         isValid = false;
@@ -57,8 +69,9 @@ emailjs.init(EMAILJS_PUBLIC_KEY);
         showValid(form.lastName);
       }
 
-      let email = form.email.value.trim();
-      let emailError = validateEmail(email);
+      // Validate Email
+      const email = form.email.value.trim();
+      const emailError = validateEmail(email);
       if (emailError) {
         showError(form.email, emailError);
         isValid = false;
@@ -66,7 +79,8 @@ emailjs.init(EMAILJS_PUBLIC_KEY);
         showValid(form.email);
       }
 
-      let message = form.message.value.trim();
+      // Validate Message
+      const message = form.message.value.trim();
       if (!message) {
         showError(form.message, "Message is required.");
         isValid = false;
@@ -77,52 +91,38 @@ emailjs.init(EMAILJS_PUBLIC_KEY);
       return isValid;
     }
 
-    function showError(input, message) {
-      const error = document.createElement('div');
-      error.classList.add('invalid-feedback');
-      error.textContent = message;
-      input.classList.add('is-invalid');
-      input.insertAdjacentElement('afterend', error);
-    }
-
-    function showValid(input) {
-      input.classList.add('is-valid');
-    }
-
-    contactForm.addEventListener("submit", function(event) {
-      event.preventDefault();
-
-      if (!firebaseAuthReady) {
-        alert("Initializing service, please wait a moment and try again.");
-        return;
-      }
+    // Contact Form submit handler
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault(); // Prevent form submission
 
       if (validateContactForm(this)) {
-        const contactData = {
-          title: this.title.value,
-          firstName: this.firstName.value,
-          lastName: this.lastName.value,
-          email: this.email.value,
-          message: this.message.value,
-          submittedAt: new Date().toISOString(),
-        };
+        // Form is valid: proceed with submission logic here (email send, save, etc.)
+        showToast("Form is valid and ready to be submitted.");
+        this.reset();
 
-        emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, this)
-          .then(() => {
-            console.log("Email sent");
-            return saveContactMessage(contactData);
-          })
-          .then(() => {
-            console.log("Data saved to Firebase");
-            alert("Message sent and saved successfully!");
-            this.reset();
-            this.querySelectorAll('.is-valid').forEach(el => el.classList.remove('is-valid'));
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-            alert("Something went wrong. Please try again.");
-          });
+        // Reset validation styling after form reset
+        const inputs = this.querySelectorAll(".form-control");
+        inputs.forEach((input) => {
+          input.classList.remove("is-valid", "is-invalid");
+          const feedback =
+            input.parentElement.querySelector(".invalid-feedback");
+          if (feedback) {
+            feedback.style.display = "none";
+          }
+        });
       }
+    });
+    // Reset event and clear validation styles and messages using reset button
+    contactForm.addEventListener("reset", () => {
+      // Remove all existing validation classes and hide invalid feedback
+      const inputs = contactForm.querySelectorAll(".form-control");
+      inputs.forEach((input) => {
+        input.classList.remove("is-valid", "is-invalid");
+        const feedback = input.parentElement.querySelector(".invalid-feedback");
+        if (feedback) {
+          feedback.style.display = "none";
+        }
+      });
     });
   });
 })();

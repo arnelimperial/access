@@ -49,20 +49,28 @@ a:focus {
   margin: -1px;
   overflow: hidden;
   padding: 0;
-  position: absolute !important;
+  position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+/* Adds a red asterisk to all labels for required fields */
+label.form-label::after {
+  content: " *";
+  color: red;
+  margin-left: 0.15em;
+  font-weight: bold;
 }
 
 /*=============== Header Block ===============*/
 .header {
   color: var(--color-text-light);
-  padding-bottom: 0 !important;
-  margin: 0 !important;
+  padding-bottom: 0;
+  margin: 0;
 }
 
 .navbar {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(7px); /* frosted glass blur */
   -webkit-backdrop-filter: blur(7px); /* Safari support */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* softer shadow */
@@ -99,16 +107,20 @@ a:focus {
 }
 
 .navbar__logo {
-  height: 55px;
-  width: auto;
-  max-width: 100%;
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
   object-fit: contain;
   transition: height var(--transition);
 }
 
 @media (max-width: 600px) {
   .navbar__logo {
-    height: 36px;
+    height: clamp(86px, 22vw, 98px);
+    max-width: 100%;
+    width: auto;
   }
 }
 
@@ -119,8 +131,28 @@ a:focus {
   }
 }
 
+/* Distinct coloring for active nav links */
+.navbar-nav .nav-link.active {
+  color: var(--color-primary);
+  font-weight: 700;
+  position: relative;
+}
+
+/* Optional: add underline or highlight bar for active nav link */
+.navbar-nav .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius);
+  pointer-events: none;
+}
+
 .custom-glass-navbar {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(7px);
   -webkit-backdrop-filter: blur(7px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -157,16 +189,11 @@ a:focus {
 
 /* Glassmorphic background for offcanvas */
 .offcanvas {
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.15
-  ) !important; /* Slightly transparent black */
+  background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 0 0.5rem 0.5rem 0;
-  color: white; /* Ensure text inside is visible */
+  color: var(--color-bg-light);
 }
 
 /* Optional: style close button to suit dark glass */
@@ -176,12 +203,20 @@ a:focus {
 
 /* Make offcanvas links white too */
 .offcanvas .nav-link {
-  color: white;
+  color: var(--color-bg-light);
 }
 
 .offcanvas .nav-link:hover,
 .offcanvas .nav-link:focus {
   color: #e63946; /* Your primary highlight color */
+}
+
+.offcanvas-body.custom-vertical-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers vertically */
+  height: 100%; /* Full height of offcanvas */
+  padding-top: 3rem;
 }
 
 .showcase {
@@ -201,13 +236,13 @@ a:focus {
 
 .showcase__title {
   font-size: clamp(1rem, 3vw, 2rem);
-  background-color: rgba(0, 0, 0, 0.25);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 0.25em 0.75em;
   border-radius: 0.5rem;
   color: var(--color-bg-light);
   letter-spacing: 0.1em;
   font-weight: 700;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
   display: inline-block;
   margin: 0 auto;
 }
@@ -220,13 +255,6 @@ a:focus {
   margin: 0.5em auto 0;
   background-color: var(--color-primary);
   border-radius: 2px;
-}
-
-/* Responsive adjustments for form and buttons */
-@media (max-width: 600px) {
-  .showcase__title {
-    font-size: 2.5rem;
-  }
 }
 
 /* Responsive adjustments for form and buttons */
@@ -293,4 +321,55 @@ a:focus {
   .footer__container {
     grid-template-columns: 1fr !important;
   }
+}
+
+/*=============== Newsletter Subscription Block ===============*/
+
+/* Newsletter Modal Glassmorphic Styling */
+
+.modal-newsletter {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 215, 0, 0.8); /* Example: gold tone */
+  border-radius: 1rem;
+  background: rgba(25, 25, 25, 0.6);
+  backdrop-filter: blur(15px);
+  color: #fff;
+  box-shadow: inset 0 0 10px rgba(255, 215, 0, 0.4); /* soft gold glow */
+}
+
+.modal-newsletter__logo {
+  max-height: 80px;
+  margin-bottom: 1rem;
+}
+
+.modal-newsletter__subtitle {
+  color: #e0e0e0;
+  margin-bottom: 0.5rem;
+}
+
+.modal-newsletter__input {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.modal-newsletter__input::placeholder {
+  color: #ccc;
+}
+
+.modal-newsletter__input:focus {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+  box-shadow: none;
+}
+
+.modal-newsletter__btn-no {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.modal-newsletter__btn-no:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #fff;
 }
