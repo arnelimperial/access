@@ -115,5 +115,8 @@ const showcaseTitle = "Seamless Access to Paradise";
   </main>
   <BookingModal slot="modal" />
   <Footer slot="footer" />
-  <script type="module" src="/js/access.js" is:inline></script>
+  <script
+    type="module"
+    src={`${import.meta.env.BASE_URL}/js/access.js`}
+    is:inline></script>
 </DefaultLayout>
