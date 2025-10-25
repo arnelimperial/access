@@ -1,10 +1,209 @@
-<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/access/favicon.svg"><meta name="generator" content="Astro v5.14.6"><title>Access | Skye Suites</title><meta name="description" content="Skye Suites. Find detailed directions, contact information, and services to make your stay effortless."><link rel="canonical" href="https://gracielleee.github.io/WebSysTech_H3101_Group-15/access"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="/access/css/global.css"><link rel="stylesheet" href="/access/css/access.css"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></head> <body> <header class="header access-header"> <nav class="navbar navbar-expand-lg custom-glass-navbar"> <div class="container navbar__container"> <a href="/access/" class="navbar__logo-link" aria-label="Skye Suites Home"> <img src="/access/assets/logo.png" alt="Skye Suites Logo" class="navbar__logo" loading="lazy"> </a> <!-- Hamburger toggle for small screens --> <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNav" aria-controls="offcanvasNav" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <!-- Large screen menu (visible on lg and up) --> <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarSupportedContent"> <ul class="navbar-nav ms-auto mb-2 mb-lg-0" role="menubar" aria-label="Main Menu"> <li class="nav-item"> <a href="/access/" class="nav-link"> <i class="fa-solid fa-house" aria-hidden="true"></i> Home </a> </li><li class="nav-item"> <a href="/access/suites" class="nav-link"> <i class="fa-solid fa-bed" aria-hidden="true"></i> Suites </a> </li><li class="nav-item"> <a href="/access/dining" class="nav-link"> <i class="fa-solid fa-utensils" aria-hidden="true"></i> Dining </a> </li><li class="nav-item"> <a href="/access/experience" class="nav-link"> <i class="fa-solid fa-spa" aria-hidden="true"></i> Experience </a> </li><li class="nav-item"> <a href="/access/access" class="nav-link active" aria-current="page"> <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Access </a> </li> </ul> <button class="btn btn-danger navbar__book-button ms-lg-3" type="button" data-bs-toggle="modal" data-bs-target="#bookNowModal">
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/access/favicon.svg"><meta name="generator" content="Astro v5.14.6"><title>Access | Skye Suites</title><meta name="description" content="Skye Suites. Find detailed directions, contact information, and services to make your stay effortless."><link rel="canonical" href="https://gracielleee.github.io/WebSysTech_H3101_Group-15/access"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><!-- <link
+      rel="stylesheet"
+      href={`${import.meta.env.BASE_URL}css/${currentPage}.css`}
+    /> --><style>
+    /*=============== Access ===============*/
+    .access-header {
+      background-image: url("https://images.pexels.com/photos/16253098/pexels-photo-16253098.jpeg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      text-align: center;
+      letter-spacing: 0.12em;
+      text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+    }
+
+    /* --- Main Section and Columns --- */
+    .section {
+      color: var(--color-text-dark);
+      margin: 1rem auto;
+      max-width: 1200px;
+      padding: 3rem 1.5rem;
+    }
+
+    .section__container {
+      display: grid;
+      gap: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    .section__column--left h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 700;
+      font-style: italic;
+      margin-bottom: 0.5rem;
+    }
+
+    .section__column--left p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .section__column--right p.section__intro {
+      font-size: 1.125rem;
+      font-style: italic;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Map iframe */
+    .map__iframe {
+      border: 0;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+      height: 320px;
+      width: 100%;
+    }
+
+    /* Smallest screen custom grid stacking */
+    @media (max-width: 400px) {
+      .section__container {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link rel="stylesheet" href="/access/_astro/access.DrhmKJ4U.css"></head> <body> <header class="header access-header"> <nav class="navbar navbar-expand-lg custom-glass-navbar"> <div class="container navbar__container"> <a href="/access/" class="navbar__logo-link" aria-label="Skye Suites Home"> <img src="/access/assets/logo.png" alt="Skye Suites Logo" class="navbar__logo" loading="lazy"> </a> <!-- Hamburger toggle for small screens --> <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNav" aria-controls="offcanvasNav" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <!-- Large screen menu (visible on lg and up) --> <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarSupportedContent"> <ul class="navbar-nav ms-auto mb-2 mb-lg-0" role="menubar" aria-label="Main Menu"> <li class="nav-item"> <a href="/access/" class="nav-link"> <i class="fa-solid fa-house" aria-hidden="true"></i> Home </a> </li><li class="nav-item"> <a href="/access/suites" class="nav-link"> <i class="fa-solid fa-bed" aria-hidden="true"></i> Suites </a> </li><li class="nav-item"> <a href="/access/dining" class="nav-link"> <i class="fa-solid fa-utensils" aria-hidden="true"></i> Dining </a> </li><li class="nav-item"> <a href="/access/experience" class="nav-link"> <i class="fa-solid fa-spa" aria-hidden="true"></i> Experience </a> </li><li class="nav-item"> <a href="/access/access" class="nav-link active" aria-current="page"> <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Access </a> </li> </ul> <button class="btn btn-danger navbar__book-button ms-lg-3" type="button" data-bs-toggle="modal" data-bs-target="#bookNowModal">
 BOOK NOW
 </button> </div> </div> </nav> <!-- Offcanvas menu for small screens --> <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNav" aria-labelledby="offcanvasNavLabel"> <div class="offcanvas-header"> <h5 class="offcanvas-title" id="offcanvasNavLabel">Menu</h5> <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> </div> <div class="offcanvas-body custom-vertical-center"> <ul class="navbar-nav" role="menubar" aria-label="Main Menu"> <li class="nav-item"> <a href="/access/" class="nav-link"> <i class="fa-solid fa-house" aria-hidden="true"></i> Home </a> </li><li class="nav-item"> <a href="/access/suites" class="nav-link"> <i class="fa-solid fa-bed" aria-hidden="true"></i> Suites </a> </li><li class="nav-item"> <a href="/access/dining" class="nav-link"> <i class="fa-solid fa-utensils" aria-hidden="true"></i> Dining </a> </li><li class="nav-item"> <a href="/access/experience" class="nav-link"> <i class="fa-solid fa-spa" aria-hidden="true"></i> Experience </a> </li><li class="nav-item"> <a href="/access/access" class="nav-link active" aria-current="page"> <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Access </a> </li> </ul> <button class="btn btn-danger w-100 mt-3" type="button" data-bs-toggle="modal" data-bs-target="#bookNowModal">
 Book Now
-</button> </div> </div> <!-- Showcase Block --> <div class="showcase"> <h1 class="showcase__title">Seamless Access to Paradise</h1> </div> </header>   <main class="section"> <div class="section__container"> <!-- Left Column Element --> <div class="section__column section__column--left"> <h2 class="section__heading"><em>Getting Here</em></h2> <p class="section__info">Check in 3:00 PM | Check-out 11:00 AM</p> <!-- Map Container Element --> <div class="map"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62909.9441331484!2d119.8891781399626!3d11.509883154436585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bbf2baae3fd5d1%3A0x5b4e937574dbfc9d!2sLinapacan%2C%20Palawan!5e0!3m2!1sen!2sph!4v1696843172345!5m2!1sen!2sph" width="100%" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Linapacan, Palawan"></iframe> </div> </div> <!-- Right Column Element --> <div class="section__column section__column--right"> <p class="section__intro"><em>Let's get in touch</em></p> <!-- Contact Form Block --> <form id="contact-form" class="needs-validation" novalidate> <p class="form-text text-muted">
+</button> </div> </div> <!-- Showcase Block --> <div class="showcase"> <h1 class="showcase__title">Seamless Access to Paradise</h1> </div> </header>    <main class="section"> <div class="section__container"> <!-- Left Column Element --> <div class="section__column section__column--left"> <h2 class="section__heading"><em>Getting Here</em></h2> <p class="section__info">Check in 3:00 PM | Check-out 11:00 AM</p> <!-- Map Container Element --> <div class="map"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62909.9441331484!2d119.8891781399626!3d11.509883154436585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bbf2baae3fd5d1%3A0x5b4e937574dbfc9d!2sLinapacan%2C%20Palawan!5e0!3m2!1sen!2sph!4v1696843172345!5m2!1sen!2sph" width="100%" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map of Linapacan, Palawan"></iframe> </div> </div> <!-- Right Column Element --> <div class="section__column section__column--right"> <p class="section__intro"><em>Let's get in touch</em></p> <!-- Contact Form Block --> <form id="contact-form" class="needs-validation" novalidate> <p class="form-text text-muted">
 Fields marked with <span class="text-danger">*</span> are required.
-</p> <div class="mb-3"> <label for="title" class="form-label">Subject</label> <input type="text" class="form-control" id="title" name="title" required autocomplete="off"> <div class="invalid-feedback">Please enter a subject.</div> </div> <div class="row g-3"> <div class="col-md-6"> <label for="first_name" class="form-label">First Name</label> <input type="text" class="form-control" id="first_name" name="firstName" required autocomplete="given-name"> <div class="invalid-feedback">Please enter your first name.</div> </div> <div class="col-md-6"> <label for="last_name" class="form-label">Last Name</label> <input type="text" class="form-control" id="last_name" name="lastName" required autocomplete="family-name"> <div class="invalid-feedback">Please enter your last name.</div> </div> </div> <div class="mb-3 mt-3"> <label for="contact-form-email" class="form-label">Email</label> <input type="email" class="form-control" id="contact-form-email" name="email" required autocomplete="email"> <div class="invalid-feedback">Please enter a valid email.</div> </div> <div class="mb-3"> <label for="message" class="form-label">Message</label> <textarea class="form-control" id="message" name="message" rows="4" required></textarea> <div class="invalid-feedback">Please enter your message.</div> </div> <div class="d-flex justify-content-end gap-2"> <button type="reset" class="btn btn-secondary">Reset</button> <button type="submit" class="btn btn-danger">SEND</button> </div> </form> <!-- End Contact Form Block --> </div> </div> </main>   <script type="module" src="/access//js/access.js"></script>  <div class="modal fade" id="bookNowModal" tabindex="-1" aria-labelledby="bookNowModalLabel" aria-hidden="true"> <div class="modal-dialog modal-lg modal-dialog-centered"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title fw-bold" id="bookNowModalLabel">
+</p> <div class="mb-3"> <label for="title" class="form-label">Subject</label> <input type="text" class="form-control" id="title" name="title" required autocomplete="off"> <div class="invalid-feedback">Please enter a subject.</div> </div> <div class="row g-3"> <div class="col-md-6"> <label for="first_name" class="form-label">First Name</label> <input type="text" class="form-control" id="first_name" name="firstName" required autocomplete="given-name"> <div class="invalid-feedback">Please enter your first name.</div> </div> <div class="col-md-6"> <label for="last_name" class="form-label">Last Name</label> <input type="text" class="form-control" id="last_name" name="lastName" required autocomplete="family-name"> <div class="invalid-feedback">Please enter your last name.</div> </div> </div> <div class="mb-3 mt-3"> <label for="contact-form-email" class="form-label">Email</label> <input type="email" class="form-control" id="contact-form-email" name="email" required autocomplete="email"> <div class="invalid-feedback">Please enter a valid email.</div> </div> <div class="mb-3"> <label for="message" class="form-label">Message</label> <textarea class="form-control" id="message" name="message" rows="4" required></textarea> <div class="invalid-feedback">Please enter your message.</div> </div> <div class="d-flex justify-content-end gap-2"> <button type="reset" class="btn btn-secondary">Reset</button> <button type="submit" class="btn btn-danger">SEND</button> </div> </form> <!-- End Contact Form Block --> </div> </div> </main>   <script type="module">
+    // validateEmail helper
+    function validateEmail(email) {
+      const forbiddenSubstrings = [
+        "domain",
+        "dummy",
+        "example",
+        "test",
+        "no-reply",
+        "noreply",
+        "sample",
+        "testing",
+      ];
+      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(email)) return "Invalid email format.";
+      const domain = email.split("@")[1];
+      for (let substring of forbiddenSubstrings) {
+        if (domain.toLowerCase().includes(substring))
+          return "This email domain is not allowed.";
+      }
+      return null;
+    }
+
+    // showToast helper
+    function showToast(message) {
+      const toastElement = document.getElementById("liveToast");
+      const toastMessage = document.getElementById("toastMessage");
+      if (!toastElement || !toastMessage) return;
+      toastMessage.textContent = message;
+      new bootstrap.Toast(toastElement).show();
+    }
+
+    (function () {
+      document.addEventListener("DOMContentLoaded", () => {
+        const contactForm = document.getElementById("contact-form");
+
+        if (!contactForm) {
+          console.error("Contact form not found.");
+          return;
+        }
+
+        function validateContactForm(form) {
+          let isValid = true;
+
+          const inputs = form.querySelectorAll(".form-control");
+          inputs.forEach((input) => {
+            input.classList.remove("is-invalid", "is-valid");
+            const feedback =
+              input.parentElement.querySelector(".invalid-feedback");
+            if (feedback) feedback.style.display = "none";
+          });
+
+          function showError(input, message) {
+            input.classList.add("is-invalid");
+            const feedback =
+              input.parentElement.querySelector(".invalid-feedback");
+            if (feedback) {
+              feedback.textContent = message;
+              feedback.style.display = "block";
+            }
+          }
+
+          function showValid(input) {
+            input.classList.add("is-valid");
+            const feedback =
+              input.parentElement.querySelector(".invalid-feedback");
+            if (feedback) feedback.style.display = "none";
+          }
+
+          if (!form.title.value.trim()) {
+            showError(form.title, "Subject is required.");
+            isValid = false;
+          } else {
+            showValid(form.title);
+          }
+
+          if (!form.firstName.value.trim()) {
+            showError(form.firstName, "First name is required.");
+            isValid = false;
+          } else {
+            showValid(form.firstName);
+          }
+
+          if (!form.lastName.value.trim()) {
+            showError(form.lastName, "Last name is required.");
+            isValid = false;
+          } else {
+            showValid(form.lastName);
+          }
+
+          const emailError = validateEmail(form.email.value.trim());
+          if (emailError) {
+            showError(form.email, emailError);
+            isValid = false;
+          } else {
+            showValid(form.email);
+          }
+
+          if (!form.message.value.trim()) {
+            showError(form.message, "Message is required.");
+            isValid = false;
+          } else {
+            showValid(form.message);
+          }
+
+          return isValid;
+        }
+
+        contactForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          if (validateContactForm(this)) {
+            showToast("Form is valid and ready to be submitted.");
+            this.reset();
+            const inputs = this.querySelectorAll(".form-control");
+            inputs.forEach((input) => {
+              input.classList.remove("is-valid", "is-invalid");
+              const feedback =
+                input.parentElement.querySelector(".invalid-feedback");
+              if (feedback) feedback.style.display = "none";
+            });
+          }
+        });
+
+        contactForm.addEventListener("reset", () => {
+          const inputs = contactForm.querySelectorAll(".form-control");
+          inputs.forEach((input) => {
+            input.classList.remove("is-valid", "is-invalid");
+            const feedback =
+              input.parentElement.querySelector(".invalid-feedback");
+            if (feedback) feedback.style.display = "none";
+          });
+        });
+      });
+    })();
+  </script>  <div class="modal fade" id="bookNowModal" tabindex="-1" aria-labelledby="bookNowModalLabel" aria-hidden="true"> <div class="modal-dialog modal-lg modal-dialog-centered"> <div class="modal-content"> <div class="modal-header"> <h5 class="modal-title fw-bold" id="bookNowModalLabel">
 Hotel Booking
 </h5> <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> </div> <form id="bookingForm" class="needs-validation" novalidate> <div class="modal-body"> <p class="h5 fw-semibold mb-3">Contact Information</p> <p class="form-text text-muted">
 Fields marked with <span class="text-danger">*</span> are required.
@@ -64,4 +263,271 @@ Please enter a valid email.
 No Thanks
 </button> <button type="submit" class="btn btn-danger fw-bold w-50">
 Subscribe
-</button> </div> </form> </div> </div> </div> <!-- ##########  End Modal Subscription Form ########## --> <!-- ##########  Start Toast Container ########## --> <div aria-live="polite" aria-atomic="true" class="position-fixed top-0 end-0 p-3" style="z-index: 1100"> <div id="liveToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true"> <div class="d-flex"> <div class="toast-body" id="toastMessage"> <!-- Success message will be inserted here --> </div> <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button> </div> </div> </div> <!-- ##########  End Toast Container ########## --> <script type="module" src="/access/_astro/Layout.astro_astro_type_script_index_0_lang.w45Pi1Xg.js"></script> <script src="https://kit.fontawesome.com/62d08c9dc3.js" crossorigin="anonymous"></script> <script type="module" src="/access/js/bookingForm.js"></script> <script type="module" src="/access/js/footer.js"></script> </body> </html>
+</button> </div> </form> </div> </div> </div> <!-- ##########  End Modal Subscription Form ########## --> <!-- ##########  Start Toast Container ########## --> <div aria-live="polite" aria-atomic="true" class="position-fixed top-0 end-0 p-3" style="z-index: 1100"> <div id="liveToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true"> <div class="d-flex"> <div class="toast-body" id="toastMessage"> <!-- Success message will be inserted here --> </div> <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button> </div> </div> </div> <!-- ##########  End Toast Container ########## --> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script> <script src="https://kit.fontawesome.com/62d08c9dc3.js" crossorigin="anonymous" defer></script> <script type="module" defer>
+      // Booking form setup
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("bookingForm");
+        const modalElement = document.getElementById("bookNowModal");
+        const bootstrapModal = new bootstrap.Modal(modalElement);
+        const suiteSelect = document.getElementById("suite");
+        const bookButtons = document.querySelectorAll(".suites-book-btn");
+        let lastClickedSuiteValue = null;
+
+        bookButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const suiteValue = button.getAttribute("data-suite");
+            if (suiteSelect && suiteValue) {
+              lastClickedSuiteValue = suiteValue;
+            }
+          });
+        });
+
+        modalElement.addEventListener("shown.bs.modal", () => {
+          form.classList.remove("was-validated");
+          if (lastClickedSuiteValue) {
+            suiteSelect.value = lastClickedSuiteValue;
+            suiteSelect.dispatchEvent(new Event("change"));
+          }
+        });
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          let valid = true;
+          if (!form.checkValidity()) valid = false;
+
+          // Simple email and phone validation (you may inline these or use helper functions here)
+          const emailInput = form.email;
+          const phoneInput = form.phone;
+
+          // Example minimal email validation
+          const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (!emailRegex.test(emailInput.value)) {
+            emailInput.setCustomValidity("Invalid email format.");
+            valid = false;
+          } else {
+            emailInput.setCustomValidity("");
+          }
+
+          // Philippine phone validation simplified
+          const phoneRegex = /^(09\d{9}|63[9]\d{9}|02\d{8})$/;
+          if (!phoneRegex.test(phoneInput.value.replace(/\s|-/g, ""))) {
+            phoneInput.setCustomValidity(
+              "Please enter a valid Philippine phone number."
+            );
+            valid = false;
+          } else {
+            phoneInput.setCustomValidity("");
+          }
+
+          form.classList.add("was-validated");
+
+          if (valid) {
+            const toastElement = document.getElementById("liveToast");
+            const toastMessage = document.getElementById("toastMessage");
+            toastMessage.textContent = "Booking submitted successfully!";
+
+            new bootstrap.Toast(toastElement).show();
+
+            bootstrapModal.hide();
+            form.reset();
+            form.classList.remove("was-validated");
+            lastClickedSuiteValue = null;
+          }
+        });
+
+        form.addEventListener("reset", () => {
+          form.classList.remove("was-validated");
+        });
+
+        modalElement.addEventListener("hidden.bs.modal", () => {
+          form.reset();
+          form.classList.remove("was-validated");
+          lastClickedSuiteValue = null;
+        });
+      });
+
+      // Footer newsletter subscription setup
+      document.addEventListener("DOMContentLoaded", () => {
+        const FOOTER_SUBSCRIBE_KEY = "newsletterSubscribed";
+        const DISMISS_PERMANENT_KEY = "newsletterDismissedPermanent";
+        const DISMISS_TEMP_KEY = "newsletterDismissedAt";
+        const DISMISS_TIMEOUT = 7 * 60 * 1000;
+
+        const footerForm = document.getElementById("newsletter-form");
+        const modalForm = document.getElementById("modal-newsletter-form");
+        const footerSubscribeBtn =
+          document.getElementById("footerSubscribeBtn");
+        const modalNoThanksBtn = document.getElementById("modal-no-thanks-btn");
+        const newsletterModalEl = document.getElementById("newsletterModal");
+        const bsModal = new bootstrap.Modal(newsletterModalEl, {
+          keyboard: true,
+        });
+
+        function validateEmail(email) {
+          const forbiddenSubstrings = [
+            "domain",
+            "dummy",
+            "example",
+            "test",
+            "no-reply",
+            "noreply",
+            "sample",
+            "testing",
+          ];
+          const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (!emailRegex.test(email)) return "Invalid email format.";
+          const domain = email.split("@")[1];
+          for (let substring of forbiddenSubstrings) {
+            if (domain.toLowerCase().includes(substring))
+              return "This email domain is not allowed.";
+          }
+          return null;
+        }
+
+        function canShowModal() {
+          if (localStorage.getItem(FOOTER_SUBSCRIBE_KEY)) {
+            if (footerSubscribeBtn) footerSubscribeBtn.disabled = true;
+            return false;
+          }
+          if (localStorage.getItem(DISMISS_PERMANENT_KEY)) {
+            if (footerSubscribeBtn) footerSubscribeBtn.disabled = false;
+            return false;
+          }
+          const dismissedAt = localStorage.getItem(DISMISS_TEMP_KEY);
+          if (dismissedAt) {
+            const elapsed = Date.now() - parseInt(dismissedAt, 10);
+            if (elapsed < DISMISS_TIMEOUT) {
+              if (footerSubscribeBtn) footerSubscribeBtn.disabled = false;
+              return false;
+            } else {
+              localStorage.removeItem(DISMISS_TEMP_KEY);
+              if (footerSubscribeBtn) footerSubscribeBtn.disabled = false;
+              return true;
+            }
+          }
+          return true;
+        }
+
+        function showToast(message) {
+          const toastElement = document.getElementById("liveToast");
+          const toastMessage = document.getElementById("toastMessage");
+          toastMessage.textContent = message;
+          new bootstrap.Toast(toastElement).show();
+        }
+
+        function handleSubmit(event, form, emailInputName) {
+          event.preventDefault();
+          const emailInput = form.querySelector(
+            `input[name="${emailInputName}"]`
+          );
+          const email = emailInput.value.trim();
+          const emailError = validateEmail(email);
+          const feedback =
+            emailInput.parentElement.querySelector(".invalid-feedback");
+
+          emailInput.classList.remove("is-invalid", "is-valid");
+          if (feedback) feedback.style.display = "none";
+
+          if (!email) {
+            emailInput.classList.add("is-invalid");
+            if (feedback) {
+              feedback.textContent = "Email is required.";
+              feedback.style.display = "block";
+            }
+            return;
+          }
+
+          if (emailError) {
+            emailInput.classList.add("is-invalid");
+            if (feedback) {
+              feedback.textContent = emailError;
+              feedback.style.display = "block";
+            }
+            return;
+          }
+
+          emailInput.classList.add("is-valid");
+          showToast("Subscribed successfully!");
+          form.reset();
+
+          localStorage.setItem(FOOTER_SUBSCRIBE_KEY, "true");
+          if (footerSubscribeBtn) footerSubscribeBtn.disabled = true;
+
+          bsModal.hide();
+        }
+
+        if (modalNoThanksBtn) {
+          modalNoThanksBtn.addEventListener("click", () => {
+            localStorage.setItem(DISMISS_PERMANENT_KEY, "true");
+            localStorage.removeItem(DISMISS_TEMP_KEY);
+            bsModal.hide();
+            if (footerSubscribeBtn) footerSubscribeBtn.disabled = false;
+          });
+        }
+
+        newsletterModalEl.addEventListener("hide.bs.modal", () => {
+          if (!localStorage.getItem(DISMISS_PERMANENT_KEY)) {
+            localStorage.setItem(DISMISS_TEMP_KEY, Date.now().toString());
+          }
+        });
+
+        if (canShowModal()) {
+          let modalShown = false;
+          function showModal() {
+            if (!modalShown && canShowModal()) {
+              bsModal.show();
+              modalShown = true;
+            }
+          }
+          setTimeout(showModal, 60000);
+          window.addEventListener(
+            "scroll",
+            () => {
+              if (
+                !modalShown &&
+                window.scrollY > document.body.scrollHeight / 2
+              ) {
+                showModal();
+              }
+            },
+            { passive: true }
+          );
+        }
+
+        if (footerForm) {
+          footerForm.addEventListener("submit", (e) =>
+            handleSubmit(e, footerForm, "newsletterEmail")
+          );
+          footerForm.addEventListener("reset", () => {
+            const emailInput = footerForm.querySelector(
+              'input[name="newsletterEmail"]'
+            );
+            const feedback =
+              emailInput.parentElement.querySelector(".invalid-feedback");
+            emailInput.classList.remove("is-invalid", "is-valid");
+            if (feedback) feedback.style.display = "none";
+          });
+        }
+
+        if (modalForm) {
+          modalForm.addEventListener("submit", (e) =>
+            handleSubmit(e, modalForm, "newsletterEmail")
+          );
+          modalForm.addEventListener("reset", () => {
+            const emailInput = modalForm.querySelector(
+              'input[name="newsletterEmail"]'
+            );
+            const feedback =
+              emailInput.parentElement.querySelector(".invalid-feedback");
+            emailInput.classList.remove("is-invalid", "is-valid");
+            if (feedback) feedback.style.display = "none";
+          });
+        }
+
+        if (localStorage.getItem(FOOTER_SUBSCRIBE_KEY)) {
+          if (footerSubscribeBtn) footerSubscribeBtn.disabled = true;
+        }
+      });
+    </script> </body> </html>

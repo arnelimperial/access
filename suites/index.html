@@ -1,8 +1,251 @@
-<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/access/favicon.svg"><meta name="generator" content="Astro v5.14.6"><title>Suites | Skye Suites</title><meta name="description" content="Explore the elegant and spacious suites at Skye Suites. Enjoy spectacular views and luxurious amenities designed for comfort and relaxation."><link rel="canonical" href="https://gracielleee.github.io/WebSysTech_H3101_Group-15/suites"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="/access/css/global.css"><link rel="stylesheet" href="/access/css/suites.css"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></head> <body> <header class="header suites-header"> <nav class="navbar navbar-expand-lg custom-glass-navbar"> <div class="container navbar__container"> <a href="/access/" class="navbar__logo-link" aria-label="Skye Suites Home"> <img src="/access/assets/logo.png" alt="Skye Suites Logo" class="navbar__logo" loading="lazy"> </a> <!-- Hamburger toggle for small screens --> <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNav" aria-controls="offcanvasNav" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <!-- Large screen menu (visible on lg and up) --> <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarSupportedContent"> <ul class="navbar-nav ms-auto mb-2 mb-lg-0" role="menubar" aria-label="Main Menu"> <li class="nav-item"> <a href="/access/" class="nav-link"> <i class="fa-solid fa-house" aria-hidden="true"></i> Home </a> </li><li class="nav-item"> <a href="/access/suites" class="nav-link active" aria-current="page"> <i class="fa-solid fa-bed" aria-hidden="true"></i> Suites </a> </li><li class="nav-item"> <a href="/access/dining" class="nav-link"> <i class="fa-solid fa-utensils" aria-hidden="true"></i> Dining </a> </li><li class="nav-item"> <a href="/access/experience" class="nav-link"> <i class="fa-solid fa-spa" aria-hidden="true"></i> Experience </a> </li><li class="nav-item"> <a href="/access/access" class="nav-link"> <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Access </a> </li> </ul> <button class="btn btn-danger navbar__book-button ms-lg-3" type="button" data-bs-toggle="modal" data-bs-target="#bookNowModal">
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/access/favicon.svg"><meta name="generator" content="Astro v5.14.6"><title>Suites | Skye Suites</title><meta name="description" content="Explore the elegant and spacious suites at Skye Suites. Enjoy spectacular views and luxurious amenities designed for comfort and relaxation."><link rel="canonical" href="https://gracielleee.github.io/WebSysTech_H3101_Group-15/suites"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><!-- <link
+      rel="stylesheet"
+      href={`${import.meta.env.BASE_URL}css/${currentPage}.css`}
+    /> --><style>
+    /*=============== Suites Page ===============*/
+    .suites-header {
+      background-image: url("https://images.pexels.com/photos/30037427/pexels-photo-30037427.jpeg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      text-align: center;
+      letter-spacing: 0.12em;
+      text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Suites page specific styles - BEM using suites-prefix */
+
+    /* Layout & Spacing */
+    .suites-main {
+      padding: 3rem 0rem 1.5rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .suites-section {
+      /* margin-bottom: 5rem; */
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .suites-intro {
+      margin-bottom: 2rem;
+    }
+
+    .suites-heading {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--color-text-dark);
+    }
+
+    .suites-subheading {
+      font-size: 1.2rem;
+      color: #555;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Main Container */
+    .container {
+      width: 90%;
+    }
+
+    /* Tabs */
+    .suites-tabs {
+      display: flex;
+      justify-content: space-evenly;
+      gap: 0rem;
+      border-bottom: 3px solid var(--color-primary);
+      list-style: none;
+      margin: 0;
+      padding-top: 0.5rem;
+      user-select: none;
+      flex-wrap: nowrap;
+    }
+
+    .suites-tab {
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      color: var(--color-text-dark);
+      border-bottom: 3px solid transparent;
+      transition:
+        color var(--transition),
+        border-color var(--transition);
+    }
+
+    .suites-tab-item {
+      flex: 1;
+      min-width: 100px;
+    }
+
+    .suites-tab[aria-selected="true"],
+    .suites-tab:hover,
+    .suites-tab:focus-visible {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+      outline: none;
+    }
+
+    /* Bootstrap Overrides for Nav Pills */
+    .nav-pills .nav-link {
+      background-color: #fff;
+      color: var(--color-text-dark);
+      border-radius: 0rem;
+      padding: 0.5rem;
+      width: 100%;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .nav-pills .nav-link.active {
+      background-color: var(--color-text-dark);
+      color: #fff;
+    }
+
+    /* Room info */
+    .suites-room-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1.5rem 0;
+      align-items: center;
+      width: 100%;
+      max-width: 1000px;
+    }
+
+    .suites-room-info--hidden {
+      display: none;
+    }
+
+    .suites-room-img {
+      display: block;
+      width: 30rem;
+      height: auto;
+      object-fit: cover;
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    /* Features list */
+    .suites-room-features {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      width: auto;
+      margin-top: 1.4rem;
+      padding-left: 30px;
+    }
+
+    .suites-features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1.2rem 0;
+      font-weight: 600;
+      color: var(--color-text-dark);
+    }
+
+    .suites-features-item {
+      margin-bottom: 0.4rem;
+      position: relative;
+      /* padding-left: 1.3rem; */
+      text-align: left;
+      font-weight: 300;
+    }
+
+    .suites-features-icon {
+      color: var(--color-text-dark);
+      margin-right: 0.6rem;
+    }
+
+    /* Book Button */
+    .suites-book-btn {
+      background-color: var(--color-primary);
+      color: var(--color-bg-light);
+      border: none;
+      border-radius: var(--border-radius);
+      padding: 0.75rem 2rem;
+      font-size: 1.125rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 2px 3px 8px var(--color-primary-dark);
+      transition:
+        background-color var(--transition),
+        box-shadow var(--transition);
+      width: fit-content;
+    }
+
+    .suites-book-btn:hover,
+    .suites-book-btn:focus-visible {
+      background-color: var(--color-primary-dark);
+      box-shadow: 0 0 10px var(--color-primary);
+      outline: 2px solid var(--color-primary-dark);
+      outline-offset: 2px;
+      outline-offset: 2px;
+      outline-style: solid;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .suites-room-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .suites-room-img,
+      .suites-room-features {
+        width: 100%;
+      }
+
+      .suites-features-list {
+        margin-bottom: 1rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      main {
+        padding: 2rem 1rem;
+      }
+
+      .suites-heading {
+        font-size: 1.8rem;
+      }
+
+      .suites-subheading {
+        font-size: 1rem;
+      }
+
+      .suites-tabs {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .suites-tab {
+        font-size: 1rem;
+        padding: 0.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-link {
+        font-size: 2.6vw;
+      }
+    }
+  </style><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link rel="stylesheet" href="/access/_astro/access.DrhmKJ4U.css"></head> <body> <header class="header suites-header"> <nav class="navbar navbar-expand-lg custom-glass-navbar"> <div class="container navbar__container"> <a href="/access/" class="navbar__logo-link" aria-label="Skye Suites Home"> <img src="/access/assets/logo.png" alt="Skye Suites Logo" class="navbar__logo" loading="lazy"> </a> <!-- Hamburger toggle for small screens --> <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNav" aria-controls="offcanvasNav" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> <!-- Large screen menu (visible on lg and up) --> <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarSupportedContent"> <ul class="navbar-nav ms-auto mb-2 mb-lg-0" role="menubar" aria-label="Main Menu"> <li class="nav-item"> <a href="/access/" class="nav-link"> <i class="fa-solid fa-house" aria-hidden="true"></i> Home </a> </li><li class="nav-item"> <a href="/access/suites" class="nav-link active" aria-current="page"> <i class="fa-solid fa-bed" aria-hidden="true"></i> Suites </a> </li><li class="nav-item"> <a href="/access/dining" class="nav-link"> <i class="fa-solid fa-utensils" aria-hidden="true"></i> Dining </a> </li><li class="nav-item"> <a href="/access/experience" class="nav-link"> <i class="fa-solid fa-spa" aria-hidden="true"></i> Experience </a> </li><li class="nav-item"> <a href="/access/access" class="nav-link"> <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Access </a> </li> </ul> <button class="btn btn-danger navbar__book-button ms-lg-3" type="button" data-bs-toggle="modal" data-bs-target="#bookNowModal">
 BOOK NOW
 </button> </div> </div> </nav> <!-- Offcanvas menu for small screens --> <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNav" aria-labelledby="offcanvasNavLabel"> <div class="offcanvas-header"> <h5 class="offcanvas-title" id="offcanvasNavLabel">Menu</h5> <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button> </div> <div class="offcanvas-body custom-vertical-center"> <ul class="navbar-nav" role="menubar" aria-label="Main Menu"> <li class="nav-item"> <a href="/access/" class="nav-link"> <i class="fa-solid fa-house" aria-hidden="true"></i> Home </a> </li><li class="nav-item"> <a href="/access/suites" class="nav-link active" aria-current="page"> <i class="fa-solid fa-bed" aria-hidden="true"></i> Suites </a> </li><li class="nav-item"> <a href="/access/dining" class="nav-link"> <i class="fa-solid fa-utensils" aria-hidden="true"></i> Dining </a> </li><li class="nav-item"> <a href="/access/experience" class="nav-link"> <i class="fa-solid fa-spa" aria-hidden="true"></i> Experience </a> </li><li class="nav-item"> <a href="/access/access" class="nav-link"> <i class="fa-solid fa-universal-access" aria-hidden="true"></i> Access </a> </li> </ul> <button class="btn btn-danger w-100 mt-3" type="button" data-bs-toggle="modal" data-bs-target="#bookNowModal">
 Book Now
-</button> </div> </div> <!-- Showcase Block --> <div class="showcase"> <h1 class="showcase__title">Experience Like Never Before</h1> </div> </header>   <main class="suites-main"> <!-- Junior Suite Section --> <section id="suites-top" class="suites-section" aria-labelledby="suites-top-heading"> <div class="container"> <!-- BOOTSTRAP: Container --> <div class="suites-intro"> <h2 id="suites-top-heading" class="suites-heading">Junior Suite</h2> <p class="suites-subheading">
+</button> </div> </div> <!-- Showcase Block --> <div class="showcase"> <h1 class="showcase__title">Experience Like Never Before</h1> </div> </header>    <main class="suites-main"> <!-- Junior Suite Section --> <section id="suites-top" class="suites-section" aria-labelledby="suites-top-heading"> <div class="container"> <!-- BOOTSTRAP: Container --> <div class="suites-intro"> <h2 id="suites-top-heading" class="suites-heading">Junior Suite</h2> <p class="suites-subheading">
 Our junior suite rooms are well equipped and offer spectacular
             views.
 </p> </div> <div class="suites-card"> <div class="suites-card-tabs"> <!-- Junior Suite Tabs using buttons and proper ARIA roles --> <ul class="nav nav-pills suites-tabs" role="tablist" aria-label="Junior Suite Room Types"> <li class="nav-item" role="presentation"> <button class="nav-link active suites-tab" id="tab-silene-junior" data-bs-toggle="pill" data-bs-target="#tab-content-silene-junior" type="button" role="tab" aria-controls="tab-content-silene-junior" aria-selected="true" tabindex="0">
@@ -84,4 +327,271 @@ Please enter a valid email.
 No Thanks
 </button> <button type="submit" class="btn btn-danger fw-bold w-50">
 Subscribe
-</button> </div> </form> </div> </div> </div> <!-- ##########  End Modal Subscription Form ########## --> <!-- ##########  Start Toast Container ########## --> <div aria-live="polite" aria-atomic="true" class="position-fixed top-0 end-0 p-3" style="z-index: 1100"> <div id="liveToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true"> <div class="d-flex"> <div class="toast-body" id="toastMessage"> <!-- Success message will be inserted here --> </div> <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button> </div> </div> </div> <!-- ##########  End Toast Container ########## --> <script type="module" src="/access/_astro/Layout.astro_astro_type_script_index_0_lang.w45Pi1Xg.js"></script> <script src="https://kit.fontawesome.com/62d08c9dc3.js" crossorigin="anonymous"></script> <script type="module" src="/access/js/bookingForm.js"></script> <script type="module" src="/access/js/footer.js"></script> </body> </html>
+</button> </div> </form> </div> </div> </div> <!-- ##########  End Modal Subscription Form ########## --> <!-- ##########  Start Toast Container ########## --> <div aria-live="polite" aria-atomic="true" class="position-fixed top-0 end-0 p-3" style="z-index: 1100"> <div id="liveToast" class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true"> <div class="d-flex"> <div class="toast-body" id="toastMessage"> <!-- Success message will be inserted here --> </div> <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button> </div> </div> </div> <!-- ##########  End Toast Container ########## --> <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script> <script src="https://kit.fontawesome.com/62d08c9dc3.js" crossorigin="anonymous" defer></script> <script type="module" defer>
+      // Booking form setup
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("bookingForm");
+        const modalElement = document.getElementById("bookNowModal");
+        const bootstrapModal = new bootstrap.Modal(modalElement);
+        const suiteSelect = document.getElementById("suite");
+        const bookButtons = document.querySelectorAll(".suites-book-btn");
+        let lastClickedSuiteValue = null;
+
+        bookButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            const suiteValue = button.getAttribute("data-suite");
+            if (suiteSelect && suiteValue) {
+              lastClickedSuiteValue = suiteValue;
+            }
+          });
+        });
+
+        modalElement.addEventListener("shown.bs.modal", () => {
+          form.classList.remove("was-validated");
+          if (lastClickedSuiteValue) {
+            suiteSelect.value = lastClickedSuiteValue;
+            suiteSelect.dispatchEvent(new Event("change"));
+          }
+        });
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          let valid = true;
+          if (!form.checkValidity()) valid = false;
+
+          // Simple email and phone validation (you may inline these or use helper functions here)
+          const emailInput = form.email;
+          const phoneInput = form.phone;
+
+          // Example minimal email validation
+          const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (!emailRegex.test(emailInput.value)) {
+            emailInput.setCustomValidity("Invalid email format.");
+            valid = false;
+          } else {
+            emailInput.setCustomValidity("");
+          }
+
+          // Philippine phone validation simplified
+          const phoneRegex = /^(09\d{9}|63[9]\d{9}|02\d{8})$/;
+          if (!phoneRegex.test(phoneInput.value.replace(/\s|-/g, ""))) {
+            phoneInput.setCustomValidity(
+              "Please enter a valid Philippine phone number."
+            );
+            valid = false;
+          } else {
+            phoneInput.setCustomValidity("");
+          }
+
+          form.classList.add("was-validated");
+
+          if (valid) {
+            const toastElement = document.getElementById("liveToast");
+            const toastMessage = document.getElementById("toastMessage");
+            toastMessage.textContent = "Booking submitted successfully!";
+
+            new bootstrap.Toast(toastElement).show();
+
+            bootstrapModal.hide();
+            form.reset();
+            form.classList.remove("was-validated");
+            lastClickedSuiteValue = null;
+          }
+        });
+
+        form.addEventListener("reset", () => {
+          form.classList.remove("was-validated");
+        });
+
+        modalElement.addEventListener("hidden.bs.modal", () => {
+          form.reset();
+          form.classList.remove("was-validated");
+          lastClickedSuiteValue = null;
+        });
+      });
+
+      // Footer newsletter subscription setup
+      document.addEventListener("DOMContentLoaded", () => {
+        const FOOTER_SUBSCRIBE_KEY = "newsletterSubscribed";
+        const DISMISS_PERMANENT_KEY = "newsletterDismissedPermanent";
+        const DISMISS_TEMP_KEY = "newsletterDismissedAt";
+        const DISMISS_TIMEOUT = 7 * 60 * 1000;
+
+        const footerForm = document.getElementById("newsletter-form");
+        const modalForm = document.getElementById("modal-newsletter-form");
+        const footerSubscribeBtn =
+          document.getElementById("footerSubscribeBtn");
+        const modalNoThanksBtn = document.getElementById("modal-no-thanks-btn");
+        const newsletterModalEl = document.getElementById("newsletterModal");
+        const bsModal = new bootstrap.Modal(newsletterModalEl, {
+          keyboard: true,
+        });
+
+        function validateEmail(email) {
+          const forbiddenSubstrings = [
+            "domain",
+            "dummy",
+            "example",
+            "test",
+            "no-reply",
+            "noreply",
+            "sample",
+            "testing",
+          ];
+          const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (!emailRegex.test(email)) return "Invalid email format.";
+          const domain = email.split("@")[1];
+          for (let substring of forbiddenSubstrings) {
+            if (domain.toLowerCase().includes(substring))
+              return "This email domain is not allowed.";
+          }
+          return null;
+        }
+
+        function canShowModal() {
+          if (localStorage.getItem(FOOTER_SUBSCRIBE_KEY)) {
+            if (footerSubscribeBtn) footerSubscribeBtn.disabled = true;
+            return false;
+          }
+          if (localStorage.getItem(DISMISS_PERMANENT_KEY)) {
+            if (footerSubscribeBtn) footerSubscribeBtn.disabled = false;
+            return false;
+          }
+          const dismissedAt = localStorage.getItem(DISMISS_TEMP_KEY);
+          if (dismissedAt) {
+            const elapsed = Date.now() - parseInt(dismissedAt, 10);
+            if (elapsed < DISMISS_TIMEOUT) {
+              if (footerSubscribeBtn) footerSubscribeBtn.disabled = false;
+              return false;
+            } else {
+              localStorage.removeItem(DISMISS_TEMP_KEY);
+              if (footerSubscribeBtn) footerSubscribeBtn.disabled = false;
+              return true;
+            }
+          }
+          return true;
+        }
+
+        function showToast(message) {
+          const toastElement = document.getElementById("liveToast");
+          const toastMessage = document.getElementById("toastMessage");
+          toastMessage.textContent = message;
+          new bootstrap.Toast(toastElement).show();
+        }
+
+        function handleSubmit(event, form, emailInputName) {
+          event.preventDefault();
+          const emailInput = form.querySelector(
+            `input[name="${emailInputName}"]`
+          );
+          const email = emailInput.value.trim();
+          const emailError = validateEmail(email);
+          const feedback =
+            emailInput.parentElement.querySelector(".invalid-feedback");
+
+          emailInput.classList.remove("is-invalid", "is-valid");
+          if (feedback) feedback.style.display = "none";
+
+          if (!email) {
+            emailInput.classList.add("is-invalid");
+            if (feedback) {
+              feedback.textContent = "Email is required.";
+              feedback.style.display = "block";
+            }
+            return;
+          }
+
+          if (emailError) {
+            emailInput.classList.add("is-invalid");
+            if (feedback) {
+              feedback.textContent = emailError;
+              feedback.style.display = "block";
+            }
+            return;
+          }
+
+          emailInput.classList.add("is-valid");
+          showToast("Subscribed successfully!");
+          form.reset();
+
+          localStorage.setItem(FOOTER_SUBSCRIBE_KEY, "true");
+          if (footerSubscribeBtn) footerSubscribeBtn.disabled = true;
+
+          bsModal.hide();
+        }
+
+        if (modalNoThanksBtn) {
+          modalNoThanksBtn.addEventListener("click", () => {
+            localStorage.setItem(DISMISS_PERMANENT_KEY, "true");
+            localStorage.removeItem(DISMISS_TEMP_KEY);
+            bsModal.hide();
+            if (footerSubscribeBtn) footerSubscribeBtn.disabled = false;
+          });
+        }
+
+        newsletterModalEl.addEventListener("hide.bs.modal", () => {
+          if (!localStorage.getItem(DISMISS_PERMANENT_KEY)) {
+            localStorage.setItem(DISMISS_TEMP_KEY, Date.now().toString());
+          }
+        });
+
+        if (canShowModal()) {
+          let modalShown = false;
+          function showModal() {
+            if (!modalShown && canShowModal()) {
+              bsModal.show();
+              modalShown = true;
+            }
+          }
+          setTimeout(showModal, 60000);
+          window.addEventListener(
+            "scroll",
+            () => {
+              if (
+                !modalShown &&
+                window.scrollY > document.body.scrollHeight / 2
+              ) {
+                showModal();
+              }
+            },
+            { passive: true }
+          );
+        }
+
+        if (footerForm) {
+          footerForm.addEventListener("submit", (e) =>
+            handleSubmit(e, footerForm, "newsletterEmail")
+          );
+          footerForm.addEventListener("reset", () => {
+            const emailInput = footerForm.querySelector(
+              'input[name="newsletterEmail"]'
+            );
+            const feedback =
+              emailInput.parentElement.querySelector(".invalid-feedback");
+            emailInput.classList.remove("is-invalid", "is-valid");
+            if (feedback) feedback.style.display = "none";
+          });
+        }
+
+        if (modalForm) {
+          modalForm.addEventListener("submit", (e) =>
+            handleSubmit(e, modalForm, "newsletterEmail")
+          );
+          modalForm.addEventListener("reset", () => {
+            const emailInput = modalForm.querySelector(
+              'input[name="newsletterEmail"]'
+            );
+            const feedback =
+              emailInput.parentElement.querySelector(".invalid-feedback");
+            emailInput.classList.remove("is-invalid", "is-valid");
+            if (feedback) feedback.style.display = "none";
+          });
+        }
+
+        if (localStorage.getItem(FOOTER_SUBSCRIBE_KEY)) {
+          if (footerSubscribeBtn) footerSubscribeBtn.disabled = true;
+        }
+      });
+    </script> </body> </html>
